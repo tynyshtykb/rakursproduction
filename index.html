@@ -6,7 +6,7 @@
     <title>Rakurs Production | Үздік Фотостудия 2025</title>
 <link rel="icon" href="img/logo.ico">
     <link rel="stylesheet" href="css/style.css?v=4">
-    <link rel="stylesheet" href="css/booking-availability.css?v=1">
+    <link rel="stylesheet" href="css/vignette-viewer.css?v=1">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,6 @@
                     
                     <li><a href="#services">Қызметтер</a></li>
                     <li><a href="#locations">Локациялар</a></li>
-                    <li><a href="#booking">Брондау</a></li>
                     <li><a href="#vignette-card" data-open-vignette="true">Виньеткалар</a></li>
                     <li><a href="#why-us">Неге бізді таңдайды</a></li>
                     <li><a href="#contacts">Байланыс</a></li>
@@ -54,7 +53,6 @@
                 <h1 class="hero-title">Rakurs Production</h1>
                 <p class="hero-subtitle">Үздік фотостудия 2025</p>
                 <div class="hero-buttons">
-                    <a href="#booking" class="btn btn-primary">Түсірілімді брондау</a>
                     <a href="#locations" class="btn btn-outline">Локацияларды көру</a>
                 </div>
             </div>
@@ -66,26 +64,26 @@
             <div class="container">
                 <h2 class="section-title fade-in">Біздің Қызметтер</h2>
                 <div class="services-grid">
-                    <!-- Виньетка -->
-                    <div id="vignette-card" class="service-card fade-in clickable-service">
+                    <!-- Той -->
+                    <div id="wedding-card" class="service-card fade-in clickable-service">
                         <div class="service-img">
-                            <img src="img/vinetka.jpg" alt="Виньетка" loading="lazy">
+                            <img src="img/toy.webp" alt="Той" loading="lazy">
                             <div class="service-hover-overlay">
-                                <span class="btn btn-primary btn-sm btn-glow">Прайс лист және үлгілерін көру</span>
+                                <span class="btn btn-primary btn-sm btn-glow">Пакеттерді көру</span>
                             </div>
                         </div>
                         <div class="service-content">
-                            <h3>Виньетка</h3>
-                            <p>Мектеп виньеткалары мен бітіру альбомдарын суретке түсіру. Оқушылар мен студенттерге арналған стильді және заманауи макеттер жасау.</p>
+                            <h3>Той</h3>
+                            <p>Үйлену тойлары мен салтанатты іс-шараларды түсіру. Мерекенің барлық негізгі сәттерін тіркеу.</p>
                         </div>
                     </div>
-                    
+
                     <!-- Love Story -->
                     <div id="lovestory-card" class="service-card fade-in clickable-service">
                         <div class="service-img">
                             <img src="img/lovestory.webp" alt="Love Story" loading="lazy">
                             <div class="service-hover-overlay">
-                                <span class="btn btn-primary btn-sm btn-glow">Пакеттерді көру</span>
+                                <span class="btn btn-primary btn-sm btn-glow">Прайс лист және жұмыстарды көру</span>
                             </div>
                         </div>
                         <div class="service-content">
@@ -105,20 +103,6 @@
                         <div class="service-content">
                             <h3>Қыз ұзату</h3>
                             <p>Дәстүрлі қазақ той алдындағы рәсімі. Маңызды отбасылық сәттерді, эмоцияларды және ұлттық атмосфераны суретке түсіру.</p>
-                        </div>
-                    </div>
-
-                    <!-- Той -->
-                    <div id="wedding-card" class="service-card fade-in clickable-service">
-                        <div class="service-img">
-                            <img src="img/toy.webp" alt="Той" loading="lazy">
-                            <div class="service-hover-overlay">
-                                <span class="btn btn-primary btn-sm btn-glow">Пакеттерді көру</span>
-                            </div>
-                        </div>
-                        <div class="service-content">
-                            <h3>Той</h3>
-                            <p>Үйлену тойлары мен салтанатты іс-шараларды түсіру. Мерекенің барлық негізгі сәттерін тіркеу.</p>
                         </div>
                     </div>
                     
@@ -161,6 +145,20 @@
                         <div class="service-content">
                             <h3>Тойға дейінгі фотосессия</h3>
                             <p>Той алдындағы ерекше сәттерді мәңгілікке сақтауға арналған арнайы фотосессия. Сіздің кіршіксіз бақытыңыз бен сезімге толы көзқарастарыңыз.</p>
+                        </div>
+                    </div>
+
+                    <!-- Виньетка -->
+                    <div id="vignette-card" class="service-card fade-in clickable-service">
+                        <div class="service-img">
+                            <img src="img/vinetka.jpg" alt="Виньетка" loading="lazy">
+                            <div class="service-hover-overlay">
+                                <span class="btn btn-primary btn-sm btn-glow">Прайс лист және үлгілерін көру</span>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Виньетка</h3>
+                            <p>Мектеп виньеткалары мен бітіру альбомдарын суретке түсіру. Оқушылар мен студенттерге арналған стильді және заманауи макеттер жасау.</p>
                         </div>
                     </div>
                 </div>
@@ -240,29 +238,6 @@
             </div>
         </section>
 
-        <section id="booking" class="section">
-            <div class="container">
-                <h2 class="section-title fade-in">Брондау</h2>
-                <div id="booking-availability" class="booking-availability fade-in" aria-live="polite">
-                    <div class="booking-availability-head">
-                        <h3>Қолжетімді күндер мен уақыт интервалдары</h3>
-                        <p>Студия уақыты 09:00-22:00 аралығында. Батырманы басып, бос интервалдарды көріп, ыңғайлы уақытты WhatsApp арқылы бірден брондаңыз.</p>
-                    </div>
-
-                    <div class="booking-availability-toolbar">
-                        <button type="button" class="ba-button" data-booking-load>
-                            <span class="ba-spinner" data-spinner hidden></span>
-                            <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
-                            <span>Бос уақыттарды білу</span>
-                        </button>
-                        <span class="ba-status" data-booking-status>Деректер жүктелмеген</span>
-                    </div>
-
-                    <div class="ba-result" data-booking-result></div>
-                </div>
-            </div>
-        </section>
-
         <!-- Contacts Section -->
         <section id="contacts" class="section bg-light">
             <div class="container">
@@ -270,7 +245,7 @@
                 <div class="contacts-grid">
                     <div class="contact-info fade-in">
                         <h3>Бізбен байланысыңыз</h3>
-                        <p>Біз кез келген сұрақтарға жауап беруге және брондау бойынша көмектесуге әрқашан дайынбыз.</p>
+                        <p>Біз кез келген сұрақтарға жауап беруге және фотосессия бойынша көмектесуге әрқашан дайынбыз.</p>
                         
                         <div class="contact-item">
                             <i class="fa-solid fa-location-dot"></i>
@@ -343,393 +318,7 @@
             </div>
         </section>
 
-        <!-- Premium Vignette Modal -->
-        <div id="vignette-modal" class="vignette-premium-modal" aria-hidden="true">
-            <div class="vp-modal-shell" role="dialog" aria-modal="true" aria-labelledby="vp-modal-title">
-                <a
-                    class="vp-instagram-fab"
-                    href="https://www.instagram.com/vinetka.aktobe_rakurs?igsh=czYyMWZvamx6Znhs"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram: vinetka.aktobe_rakurs"
-                    title="Instagram"
-                >
-                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                        <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zm9.75 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" />
-                    </svg>
-                    <span>Instagram</span>
-                </a>
-                <a
-                    class="vp-locations-fab"
-                    href="#locations"
-                    data-go-locations
-                    aria-label="Локацияларды көру"
-                    title="Локацияларды көру"
-                >
-                    Локацияларды көру
-                </a>
-                <button class="vp-faq-fab" type="button" data-faq-open aria-haspopup="dialog" aria-controls="faq-modal" aria-label="Жиі қойылатын сұрақтар">
-                    <span class="vp-faq-fab-icon" aria-hidden="true">?</span>
-                    <span>Жиі қойылатын сұрақтар</span>
-                </button>
-                <button class="vp-close" type="button" aria-label="Шығу">
-                    <span class="vp-close-icon" aria-hidden="true">&times;</span>
-                    <span class="vp-close-text">Шығу</span>
-                </button>
-
-                <button class="why-us-floating-btn" type="button" data-why-us-open aria-haspopup="dialog" aria-controls="why-us-modal">
-                    Не үшін біз
-                </button>
-
-                <div id="why-us-modal" class="why-us-modal" aria-hidden="true">
-                    <div class="why-us-modal-card" role="dialog" aria-modal="true" aria-labelledby="why-us-modal-title">
-                        <button class="why-us-modal-close" type="button" data-why-us-close aria-label="Жабу">&times;</button>
-                        <h3 id="why-us-modal-title">Не үшін біз</h3>
-
-                        <div class="why-us-list" role="list">
-                            <article class="why-us-item" role="listitem">
-                                <span class="why-us-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24"><path d="M4 18h16v2H4zm2-2 3.6-9.8A2.2 2.2 0 0 1 11.7 5h.6a2.2 2.2 0 0 1 2.1 1.2L18 16z"/></svg>
-                                </span>
-                                <div>
-                                    <h4>Ерекше локация</h4>
-                                    <p>Jet локация және қаладағы ең үлкен циклорамалардың бірі. Локациялар кең әрі жарық.</p>
-                                </div>
-                            </article>
-
-                            <article class="why-us-item" role="listitem">
-                                <span class="why-us-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24"><path d="M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm2 4v8h10V8z"/></svg>
-                                </span>
-                                <div>
-                                    <h4>Жоғары сапа</h4>
-                                    <p>Арнайы типография қолданылады. Түсі оңбайды, ұзақ сақталады.</p>
-                                </div>
-                            </article>
-
-                            <article class="why-us-item" role="listitem">
-                                <span class="why-us-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24"><path d="m12 2 2.5 5.1L20 8l-4 3.9.9 5.6L12 15l-4.9 2.5.9-5.6L4 8l5.5-.9z"/></svg>
-                                </span>
-                                <div>
-                                    <h4>Тәжірибе және марапат</h4>
-                                    <p>Көп жылдық тәжірибе және «2025 жылдың үздік фотостудиясы» атағы.</p>
-                                </div>
-                            </article>
-
-                            <article class="why-us-item" role="listitem">
-                                <span class="why-us-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 1 5 5v1h2a2 2 0 0 1 2 2v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4v-8a2 2 0 0 1 2-2h2V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v1h6V7a3 3 0 0 0-3-3z"/></svg>
-                                </span>
-                                <div>
-                                    <h4>Бонус</h4>
-                                    <p>20+ оқушы болғанда мұғалімге және ұйымдастырушыға тегін виньетка.</p>
-                                </div>
-                            </article>
-
-
-                            <article class="why-us-item" role="listitem">
-                                <span class="why-us-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5.2 3.4 8.8 8 10 4.6-1.2 8-4.8 8-10V6zm-1 13-3-3 1.4-1.4L11 12.2l3.6-3.6L16 10z"/></svg>
-                                </span>
-                                <div>
-                                    <h4>Сенімділік</h4>
-                                    <p>Барлығы ресми түрде жүреді. Ресми келісімшарт жасаймыз.</p>
-                                </div>
-                            </article>
-                        </div>
-
-                        <p class="why-us-accent">Виньетка - өмір бойы сақталады. Сапаны таңдаңыз.</p>
-                    </div>
-                </div>
-
-                <div id="faq-modal" class="faq-modal" aria-hidden="true">
-                    <div class="faq-modal-card" role="dialog" aria-modal="true" aria-labelledby="faq-modal-title">
-                        <button class="faq-modal-close" type="button" data-faq-close aria-label="Жабу">&times;</button>
-                        <h3 id="faq-modal-title">Жиі қойылатын сұрақтар</h3>
-
-                        <div class="faq-list" role="list">
-                            <article class="faq-item" role="listitem">
-                                <h4>1. Егер топта 20 баладан аз болса не болады?</h4>
-                                <ul>
-                                    <li>20 баладан аз болған жағдайда студия арендасы бөлек төленеді.</li>
-                                    <li>Кейбір бонустар қысқартылады.</li>
-                                </ul>
-                                <p class="faq-label">Нақты шарттар:</p>
-                                <ul>
-                                    <li>17 баладан аз болса - 1 сағат студия арендасы 20 000 тг. Мұғалімге тегін.</li>
-                                    <li>15 баладан аз болса - 1 сағат студия арендасы 20 000 тг. Мұғалімге және ұйымдастырушыға тегін берілмейді.</li>
-                                </ul>
-                            </article>
-
-                            <article class="faq-item" role="listitem">
-                                <h4>2. ФК Ақтөбе формасы беріле ме?</h4>
-                                <p>Жоқ, форма берілмейді. Ол тек декор (безендіру) ретінде қолданылады.</p>
-                            </article>
-
-                            <article class="faq-item" role="listitem">
-                                <h4>3. Түсірілімнен кейін қанша күнде дайын болады?</h4>
-                                <ul>
-                                    <li>Фото өңдеу - 5 жұмыс күні ішінде дайын болады.</li>
-                                    <li>Дизайн (виньетка) - 15-20 күн ішінде жасалады.</li>
-                                </ul>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="vp-top-title">Прайс лист және виньеткалар үлгілері</div>
-
-                <div class="vp-sticky-nav" aria-label="Навигация по шаблонам">
-                    <button type="button" class="vp-nav-toggle" aria-expanded="false" aria-controls="vp-nav-menu" aria-label="Шаблондар мен прайс навигациясы">
-                        <span class="vp-nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
-                        <span class="vp-nav-toggle-text">Меню</span>
-                    </button>
-                    <button type="button" class="vp-mobile-booking-shortcut" data-open-vignette-booking>
-                        Бос уақыттарды білу
-                    </button>
-                    <div class="vp-nav-menu" id="vp-nav-menu">
-                        <button type="button" class="vp-nav-link is-active" data-scroll-target="vp-pricing">Прайс лист</button>
-                        <button type="button" class="vp-nav-link" data-scroll-target="vp-booking">Брондау</button>
-                        <button type="button" class="vp-nav-link" data-scroll-target="vp-template-1">11-9 сынып(1-разворот)</button>
-                        <button type="button" class="vp-nav-link" data-scroll-target="vp-template-2">11-9(2-разворот)</button>
-                        <button type="button" class="vp-nav-link" data-scroll-target="vp-template-3">Жас түлек</button>
-                        <button type="button" class="vp-nav-link" data-scroll-target="vp-template-4">Бала-бақшамен қоштасу</button>
-                        <button type="button" class="vp-nav-link" data-scroll-target="vp-template-5">Бастауыш сынып</button>
-                    </div>
-                </div>
-
-                <div class="vp-modal-body">
-                    <section class="vp-pricing" id="vp-pricing">
-                        <div class="vp-pricing-grid">
-                            <article class="vp-price-card vp-reveal">
-                                <h4>1 ПАКЕТ</h4>
-                                <p class="vp-price">4000 тг / оқушы</p>
-                                <p class="vp-pages">📖 1 разворот (2 бет)</p>
-                                <span class="vp-divider" aria-hidden="true"></span>
-                                <ul>
-                                    <li>Фотостудия - 2 сағат</li>
-                                    <li>Профессионал фотограф</li>
-                                    <li>Дизайн</li>
-                                    <li>1-2 образ</li>
-                                </ul>
-                            </article>
-
-                            <article class="vp-price-card vp-reveal">
-                                <h4>2 ПАКЕТ</h4>
-                                <p class="vp-price">6000 тг / оқушы</p>
-                                <p class="vp-pages">📖 2 разворот (3 бет)</p>
-                                <span class="vp-divider" aria-hidden="true"></span>
-                                <ul>
-                                    <li>Фотостудия - 2 сағат</li>
-                                    <li>Профессионал фотограф</li>
-                                    <li>Мобилограф</li>
-                                    <li>Дизайн</li>
-                                    <li>2-3 образ</li>
-                                </ul>
-                            </article>
-
-                            <article class="vp-price-card vp-reveal">
-                                <h4>3 ПАКЕТ</h4>
-                                <p class="vp-price">9000 тг / оқушы</p>
-                                <p class="vp-pages">📖 3 разворот (4 бет)</p>
-                                <span class="vp-divider" aria-hidden="true"></span>
-                                <ul>
-                                    <li>Фотостудия - 2 сағат</li>
-                                    <li>Сыртқы 1 локация</li>
-                                    <li>Профессионал фотограф</li>
-                                    <li>Мобилограф</li>
-                                    <li>Дизайн</li>
-                                    <li>3 образ</li>
-                                </ul>
-                            </article>
-
-                            <article class="vp-price-card vp-reveal vp-price-card-premium">
-                                <h4>PREMIUM ПАКЕТ</h4>
-                                <p class="vp-price">15000 тг / оқушы</p>
-                                <p class="vp-pages">📚 2-лік / 6 разворот (8 бет)</p>
-                                <span class="vp-divider" aria-hidden="true"></span>
-                                <ul>
-                                    <li>Фотостудия - 2 сағат</li>
-                                    <li>Сыртқы 1 локация</li>
-                                    <li>Жеке дизайн</li>
-                                    <li>Профессионал фотограф</li>
-                                    <li>Мобилограф</li>
-                                    <li>3 образ</li>
-                                </ul>
-                            </article>
-                        </div>
-
-                        <div class="vp-pricing-notice" role="note" aria-label="Ескерту">
-                            <div class="vp-notice-icon" aria-hidden="true">⚠</div>
-                            <div>
-                                <h4>Ескертетін жайт:</h4>
-                                <ul>
-                                    <li>Тапсырыс 20 оқушыдан жоғары болуы тиіс</li>
-                                    <li>Ұйымдастырушы мен мұғалімге тегін</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section class="vp-booking-section" id="vp-booking">
-                        <div class="booking-availability" aria-live="polite">
-                            <div class="booking-availability-head">
-                                <h3>Қолжетімді күндер мен уақыт интервалдары</h3>
-                                <p>Студия уақыты 09:00-22:00 аралығында. Батырманы басып, бос интервалдарды көріп, ыңғайлы уақытты WhatsApp арқылы бірден брондаңыз.</p>
-                            </div>
-
-                            <div class="booking-availability-toolbar">
-                                <button type="button" class="ba-button" data-booking-load>
-                                    <span class="ba-spinner" data-spinner hidden></span>
-                                    <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
-                                    <span>Бос уақыттарды білу</span>
-                                </button>
-                                <span class="ba-status" data-booking-status>Деректер жүктелмеген</span>
-                            </div>
-
-                            <div class="ba-result" data-booking-result></div>
-                        </div>
-                    </section>
-
-                    <div class="vp-template-list">
-                        <section class="vp-template-section" id="vp-template-1" data-template-id="vp-template-1">
-                            <h3>11-9 сынып(1-разворот)</h3>
-                            <article class="vp-album-item">
-                                <div class="vp-album" data-state="0">
-                                    <div class="vp-book-scene">
-                                        <div class="vp-book-core">
-                                            <div class="vp-spine-shadow"></div>
-                                            <div class="vp-leaf vp-leaf-front" data-leaf="1">
-                                                <div class="vp-face vp-front"><img src="img/vin2.jpeg" alt="Front cover"></div>
-                                                <div class="vp-face vp-back"><img src="img/vin3.jpeg" alt="Inside left"></div>
-                                            </div>
-                                            <div class="vp-leaf vp-leaf-back" data-leaf="2">
-                                                <div class="vp-face vp-front"><img src="img/vin4.jpeg" alt="Inside right"></div>
-                                                <div class="vp-face vp-back"><img src="img/vin5.jpeg" alt="Back cover"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="vp-album-controls">
-                                        <button type="button" class="vp-control" data-action="prev">Артқа</button>
-                                        <button type="button" class="vp-control" data-action="next">Алға</button>
-                                    </div>
-                                </div>
-                            </article>
-                        </section>
-
-                        <section class="vp-template-section" id="vp-template-2" data-template-id="vp-template-2">
-                            <h3>11-9(2-разворот)</h3>
-                            <article class="vp-album-item">
-                                <div class="vp-album" data-state="0">
-                                    <div class="vp-book-scene">
-                                        <div class="vp-book-core">
-                                            <div class="vp-spine-shadow"></div>
-                                            <div class="vp-leaf vp-leaf-front" data-leaf="1">
-                                                <div class="vp-face vp-front"><img src="img/vin6.jpeg" alt="Front cover"></div>
-                                                <div class="vp-face vp-back"><img src="img/vin8.jpeg" alt="Inside left"></div>
-                                            </div>
-                                            <div class="vp-leaf" data-leaf="2">
-                                                <div class="vp-face vp-front"><img src="img/vin7.jpeg" alt="Inside spread page 1"></div>
-                                                <div class="vp-face vp-back"><img src="img/vin10.jpeg" alt="Inside spread page 2"></div>
-                                            </div>
-                                            <div class="vp-leaf vp-leaf-back" data-leaf="3">
-                                                <div class="vp-face vp-front"><img src="img/vin11.jpeg" alt="Inside right"></div>
-                                                <div class="vp-face vp-back"><img src="img/vin9.jpeg" alt="Back cover"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="vp-album-controls">
-                                        <button type="button" class="vp-control" data-action="prev">Артқа</button>
-                                        <button type="button" class="vp-control" data-action="next">Алға</button>
-                                    </div>
-                                </div>
-                            </article>
-                        </section>
-
-                        <section class="vp-template-section" id="vp-template-3" data-template-id="vp-template-3">
-                            <h3>Жас түлек</h3>
-                            <article class="vp-album-item">
-                                <div class="vp-album" data-state="0">
-                                    <div class="vp-book-scene">
-                                        <div class="vp-book-core">
-                                            <div class="vp-spine-shadow"></div>
-                                            <div class="vp-leaf vp-leaf-front" data-leaf="1">
-                                                <div class="vp-face vp-front"><img src="img/vin12.jpeg" alt="Front cover"></div>
-                                                <div class="vp-face vp-back"><img src="img/vin13.jpeg" alt="Inside left"></div>
-                                            </div>
-                                            <div class="vp-leaf vp-leaf-back" data-leaf="2">
-                                                <div class="vp-face vp-front"><img src="img/vin14.jpeg" alt="Inside right"></div>
-                                                <div class="vp-face vp-back"><img src="img/vin15.jpeg" alt="Back cover"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="vp-album-controls">
-                                        <button type="button" class="vp-control" data-action="prev">Артқа</button>
-                                        <button type="button" class="vp-control" data-action="next">Алға</button>
-                                    </div>
-                                </div>
-                            </article>
-                        </section>
-
-                        <section class="vp-template-section" id="vp-template-4" data-template-id="vp-template-4">
-                            <h3>Бала-бақшамен қоштасу</h3>
-                            <article class="vp-album-item">
-                                <div class="vp-album" data-state="0">
-                                    <div class="vp-book-scene">
-                                        <div class="vp-book-core">
-                                            <div class="vp-spine-shadow"></div>
-                                            <div class="vp-leaf vp-leaf-front" data-leaf="1">
-                                                <div class="vp-face vp-front"><img src="img/vin16.jpeg" alt="Front cover"></div>
-                                                <div class="vp-face vp-back"><img src="img/vin17.jpeg" alt="Inside left"></div>
-                                            </div>
-                                            <div class="vp-leaf vp-leaf-back" data-leaf="2">
-                                                <div class="vp-face vp-front"><img src="img/vin18.jpeg" alt="Inside right"></div>
-                                                <div class="vp-face vp-back"><img src="img/vin19.jpeg" alt="Back cover"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="vp-album-controls">
-                                        <button type="button" class="vp-control" data-action="prev">Артқа</button>
-                                        <button type="button" class="vp-control" data-action="next">Алға</button>
-                                    </div>
-                                </div>
-                            </article>
-                        </section>
-
-                        <section class="vp-template-section" id="vp-template-5" data-template-id="vp-template-5">
-                            <h3>Бастауыш сынып</h3>
-                            <article class="vp-album-item">
-                                <div class="vp-album" data-state="0">
-                                    <div class="vp-book-scene">
-                                        <div class="vp-book-core">
-                                            <div class="vp-spine-shadow"></div>
-                                            <div class="vp-leaf vp-leaf-front" data-leaf="1">
-                                                <div class="vp-face vp-front"><img src="img/vin20.jpeg" alt="Бастауыш сынып мұқаба"></div>
-                                                <div class="vp-face vp-back"><img src="img/vin21.jpeg" alt="Бастауыш сынып ішкі бет"></div>
-                                            </div>
-                                            <div class="vp-leaf" data-leaf="2">
-
-                                                <div class="vp-face vp-front"><img src="img/vin22.jpeg" alt="Бастауыш сынып қосымша бет 1"></div>
-                                                <div class="vp-face vp-back"><img src="img/vin23.jpeg" alt="Бастауыш сынып қосымша бет 2"></div>
-                                            </div>
-                                            <div class="vp-leaf vp-leaf-back" data-leaf="3">
-                                                <div class="vp-face vp-front"><img src="img/vin24.jpeg" alt="Бастауыш сынып ішкі оң бет"></div>
-                                                <div class="vp-face vp-back"><img src="img/vin25.jpeg" alt="Бастауыш сынып артқы мұқаба"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="vp-album-controls">
-                                        <button type="button" class="vp-control" data-action="prev">Артқа</button>
-                                        <button type="button" class="vp-control" data-action="next">Алға</button>
-                                    </div>
-                                </div>
-                            </article>
-                        </section>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div id="vignette-react-root"></div>
 
         <!-- Gallery Modal for Locations -->
         <div id="location-modal" class="modal">
@@ -748,108 +337,299 @@
 
         <!-- Love Story Modal -->
         <div id="lovestory-modal" class="ls-modal">
-            <div class="ls-modal-content">
+            <div class="ls-modal-content ls-choice-modal-content">
                 <div class="ls-modal-header">
-                    <h2>Love Story прайс лист</h2>
-                    <span class="ls-close-modal">&times;</span>
+                    <button type="button" class="ls-back-btn" data-close-lovestory-choice>
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Назад</span>
+                    </button>
+                    <span class="ls-modal-pill">Love Story</span>
                 </div>
                 <div class="ls-modal-body">
-                    <div class="ls-packages">
-                        <!-- Package 1 -->
-                        <div class="ls-package">
-                            <div class="ls-pkg-header">LOVE STORY (econom)</div>
-                            <ul class="ls-pkg-list">
-                                <li><i class="fa-solid fa-check"></i> Макияж, прическа</li>
-                                <li><i class="fa-solid fa-check"></i> Фотостудия 4 локация</li>
-                                <li><i class="fa-solid fa-check"></i> Фотограф</li>
-                                <li><i class="fa-solid fa-check"></i> Видеограф</li>
-                                <li><i class="fa-solid fa-check"></i> 2 мольберт</li>
-                                <li><i class="fa-solid fa-check"></i> Фотообработка (170-190 фото)</li>
-                                <li><i class="fa-solid fa-check"></i> Ретушь (10-20 фото)</li>
-                            </ul>
-                            <div class="ls-pkg-outfits">
-                                <h5>📦 Бізден алуға болады:</h5>
-                                <ul>
-                                    <li>Той көйлегі (фотосессия)</li>
-                                    <li>Этно образ</li>
-                                    <li>Жұптық жейде</li>
-                                    <li>Кешкі көйлек</li>
-                                </ul>
-                            </div>
-                            <div class="ls-pkg-price">💰 90 000 тг <span>(жеңілдікпен)</span></div>
-                        </div>
+                    <div class="ls-choice-grid">
+                        <button type="button" class="ls-choice-card ls-choice-card--story" data-open-love-story-works>
+                            <span class="ls-choice-badge">Сюжеттік</span>
+                            <h3>Сюжеттік Love Story</h3>
+                            <p>Әсерлі және кинематографиялық оқиғаларды біртұтас сюжеттің ішінде көрсету.</p>
+                            <span class="ls-choice-action">Көру <i class="fa-solid fa-arrow-right"></i></span>
+                        </button>
 
-                        <!-- Package 2 -->
-                        <div class="ls-package ls-pkg-standart">
-                            <div class="ls-pkg-header">LOVE STORY (standart)</div>
-                            <ul class="ls-pkg-list">
-                                <li><i class="fa-solid fa-check"></i> Макияж, прическа</li>
-                                <li><i class="fa-solid fa-check"></i> Фотостудия 3 локация</li>
-                                <li><i class="fa-solid fa-check"></i> Сыртта 2 локация</li>
-                                <li><i class="fa-solid fa-check"></i> Дрон</li>
-                                <li><i class="fa-solid fa-check"></i> Фотограф</li>
-                                <li><i class="fa-solid fa-check"></i> Видеограф</li>
-                                <li><i class="fa-solid fa-check"></i> 4 мольберт</li>
-                                <li><i class="fa-solid fa-check"></i> Фотообработка (200–210 фото)</li>
-                                <li><i class="fa-solid fa-check"></i> Ретушь (15–20 фото)</li>
-                            </ul>
-                            <div class="ls-pkg-outfits">
-                                <h5>📦 Бізден алуға болады:</h5>
-                                <ul>
-                                    <li>Той көйлегі (фотосессия)</li>
-                                    <li>Этно образ</li>
-                                    <li>Жұптық жейде</li>
-                                    <li>Кешкі көйлек</li>
-                                </ul>
-                            </div>
-                            <div class="ls-pkg-price">💰 130 000 тг <span>(жеңілдікпен)</span></div>
-                        </div>
+                        <button type="button" class="ls-choice-card ls-choice-card--classic" data-open-love-story-pricing>
+                            <span class="ls-choice-badge">Классикалық</span>
+                            <h3>Классикалық Love Story</h3>
+                            <p>Классикалық композиция, нәзік атмосфера және әрбір елеулі сәттің жан-жақты жоспарлануы.</p>
+                            <span class="ls-choice-action">Прайс-лист <i class="fa-solid fa-arrow-right"></i></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                        <!-- Package 3 -->
-                        <div class="ls-package">
-                            <div class="ls-pkg-header">LOVE STORY (vip)</div>
-                            <ul class="ls-pkg-list">
-                                <li><i class="fa-solid fa-check"></i> Макияж, прическа</li>
-                                <li><i class="fa-solid fa-check"></i> Фотостудия 3 локация</li>
-                                <li><i class="fa-solid fa-check"></i> Сыртта 3 локация</li>
-                                <li><i class="fa-solid fa-check"></i> Дрон</li>
-                                <li><i class="fa-solid fa-check"></i> Фотограф</li>
-                                <li><i class="fa-solid fa-check"></i> Видеограф</li>
-                                <li><i class="fa-solid fa-check"></i> Сценарий</li>
-                                <li><i class="fa-solid fa-check"></i> 6 мольберт</li>
-                                <li><i class="fa-solid fa-check"></i> Фотообработка (200–210 фото)</li>
-                                <li><i class="fa-solid fa-check"></i> Ретушь (15–20 фото)</li>
-                            </ul>
-                            <div class="ls-pkg-outfits">
-                                <h5>📦 Бізден алуға болады:</h5>
-                                <ul>
-                                    <li>Той көйлегі (фотосессия)</li>
-                                    <li>Этно образ</li>
-                                    <li>Жұптық жейде</li>
-                                    <li>Кешкі көйлек</li>
-                                </ul>
-                            </div>
-                            <div class="ls-pkg-price">💰 150 000 тг <span>(жеңілдікпен)</span></div>
+        <div id="lovestory-story-modal" class="ls-modal ls-sub-modal">
+            <div class="ls-modal-content ls-story-modal-content">
+                <div class="ls-modal-header">
+                    <button type="button" class="ls-back-btn" data-back-to-love-story-choice>
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Назад</span>
+                    </button>
+                    <span class="ls-modal-pill">Сюжеттік Love Story</span>
+                </div>
+                <div class="ls-modal-body">
+                    <div class="ls-video-portfolio">
+                        <div class="ls-video-grid">
+                            <article class="ls-video-card ls-video-card--featured" data-scroll-reveal>
+                                <div class="ls-video-thumb" style="background-image: url('img/lovestory.webp');">
+                                    <span class="ls-video-play"><i class="fa-solid fa-play"></i></span>
+                                </div>
+                                <div class="ls-video-caption">
+                                    <span class="ls-video-tag">Жұмыс үлгісі</span>
+                                    <h4>Сюжеттік Love Story</h4>
+                                    <p>Көріністер мен эмоцияларды біртұтас хронологияда жоспарлау.</p>
+                                </div>
+                            </article>
+
+                            <article class="ls-video-card" data-scroll-reveal>
+                                <div class="ls-video-thumb" style="background-image: url('img/uzaty.jpg');">
+                                    <span class="ls-video-play"><i class="fa-solid fa-play"></i></span>
+                                </div>
+                                <div class="ls-video-caption">
+                                    <span class="ls-video-tag">Скоро</span>
+                                    <h4>Жаңа ролик</h4>
+                                    <p>Видео материалдар қосылғаннан кейін бұл бөлім автоматты түрде толықтырылады.</p>
+                                </div>
+                            </article>
+
+                            <article class="ls-video-card" data-scroll-reveal>
+                                <div class="ls-video-thumb" style="background-image: url('img/toy.webp');">
+                                    <span class="ls-video-play"><i class="fa-solid fa-play"></i></span>
+                                </div>
+                                <div class="ls-video-caption">
+                                    <span class="ls-video-tag">Скоро</span>
+                                    <h4>Той кадрлары</h4>
+                                    <p>Кейінгі жаңартуларда сюжеттік материалдардың толық коллекциясы көрінеді.</p>
+                                </div>
+                            </article>
+
+                            <article class="ls-video-card" data-scroll-reveal>
+                                <div class="ls-video-thumb" style="background-image: url('img/b4toi.jpg');">
+                                    <span class="ls-video-play"><i class="fa-solid fa-play"></i></span>
+                                </div>
+                                <div class="ls-video-caption">
+                                    <span class="ls-video-tag">Скоро</span>
+                                    <h4>Подготовка к празднику</h4>
+                                    <p>Сценарий, атмосфера және тарихи сәттерді көрсету үшін дайын шаблон.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="lovestory-classic-modal" class="ls-modal ls-sub-modal">
+            <div class="ls-modal-content ls-pricing-modal-content">
+                <div class="ls-modal-header">
+                    <button type="button" class="ls-back-btn" data-back-to-love-story-choice>
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Назад</span>
+                    </button>
+                    <span class="ls-modal-pill">Классикалық Love Story</span>
+                </div>
+                <div class="ls-modal-body">
+                    <div class="ls-pricing-nav-wrap">
+                        <div class="ls-pricing-nav" data-pricing-nav>
+                            <button type="button" class="ls-pricing-tab active" data-pricing-target="ls-tier-econom">Econom</button>
+                            <button type="button" class="ls-pricing-tab" data-pricing-target="ls-tier-standart">Standart</button>
+                            <button type="button" class="ls-pricing-tab" data-pricing-target="ls-tier-vip">VIP</button>
                         </div>
                     </div>
 
-                    <div class="ls-conditions">
-                        <div class="ls-cond-left">
-                            <ul>
-                                <li><i class="fa-solid fa-circle-info"></i> Ерлерге костюм, туфли берілмейді</li>
-                                <li><i class="fa-solid fa-circle-info"></i> Локациялар арасындағы транспорт сіздерден</li>
-                                <li><i class="fa-solid fa-circle-info"></i> Сыртқы локацияға өздеріңіз төлейсіздер</li>
-                            </ul>
-                        </div>
-                        <div class="ls-cond-right">
-                            <h5>Қосымша ақылы қызметтер:</h5>
-                            <ul>
-                                <li>Транспорт <span>(локацияға байланысты)</span></li>
-                                <li>Қосымша мольберт <span>(1 шт – 5000 тг)</span></li>
-                                <li>Видео шақыру <span>– 4000 тг</span></li>
-                                <li>Сайт шақыру <span>– 8000 тг</span></li>
-                            </ul>
-                        </div>
+                    <div class="ls-tier-panels">
+                        <section class="ls-tier-panel active" id="ls-tier-econom" data-tier-panel>
+                            <div class="ls-snake-sequence">
+                                <svg class="ls-snake-route" viewBox="0 0 240 620" preserveAspectRatio="none" aria-hidden="true">
+                                    <path d="M120 24 C 40 58, 36 126, 120 160 C 202 192, 206 274, 120 308 C 36 342, 36 418, 120 450 C 202 482, 206 566, 120 596"></path>
+                                </svg>
+                                <span class="ls-snake-node ls-snake-node--1"></span>
+                                <span class="ls-snake-node ls-snake-node--2"></span>
+                                <span class="ls-snake-node ls-snake-node--3"></span>
+                                <span class="ls-snake-node ls-snake-node--4"></span>
+                                <div class="ls-snake-block ls-snake-block--left" data-scroll-reveal>
+                                    <article class="ls-snake-card">
+                                        <span class="ls-snake-step">01</span>
+                                        <span class="ls-snake-label">Маршрут</span>
+                                        <div class="ls-snake-price">90 000 тг</div>
+                                        <p class="ls-snake-description">Жұптың ең маңызды сәттерін, жылы және табиғи эмоцияларды сақтайтын базалық пакеттің толық ауқымы.</p>
+                                    </article>
+                                </div>
+                                <div class="ls-snake-block ls-snake-block--right" data-scroll-reveal>
+                                    <article class="ls-snake-card">
+                                        <span class="ls-snake-step">02</span>
+                                        <h4>Пакетке кіреді</h4>
+                                        <ul class="ls-snake-list">
+                                            <li><i class="fa-solid fa-check"></i> Макияж, прическа</li>
+                                            <li><i class="fa-solid fa-check"></i> Фотостудия 4 локация</li>
+                                            <li><i class="fa-solid fa-check"></i> Фотограф</li>
+                                            <li><i class="fa-solid fa-check"></i> Видеограф</li>
+                                            <li><i class="fa-solid fa-check"></i> 2 мольберт</li>
+                                            <li><i class="fa-solid fa-check"></i> Фотообработка (170–190 фото)</li>
+                                            <li><i class="fa-solid fa-check"></i> Ретушь (10–20 фото)</li>
+                                        </ul>
+                                    </article>
+                                </div>
+                                <div class="ls-snake-block ls-snake-block--left" data-scroll-reveal>
+                                    <article class="ls-snake-card">
+                                        <h4>Бізден алуға болады</h4>
+                                        <ul class="ls-snake-list ls-snake-list--small">
+                                            <li><i class="fa-solid fa-check"></i> Той көйлегі (фотосессия)</li>
+                                            <li><i class="fa-solid fa-check"></i> Этно образ</li>
+                                            <li><i class="fa-solid fa-check"></i> Жұптық жейде</li>
+                                            <li><i class="fa-solid fa-check"></i> Кешкі көйлек</li>
+                                        </ul>
+                                    </article>
+                                </div>
+                                <div class="ls-snake-block ls-snake-block--right" data-scroll-reveal>
+                                    <article class="ls-snake-card ls-snake-card--highlight ls-snake-card--cta">
+                                        <span class="ls-snake-step">04</span>
+                                        <span class="ls-snake-label">Финал</span>
+                                        <div class="ls-snake-price">90 000 тг</div>
+                                        <p class="ls-snake-description">Нәзік атмосфера, дайын сценарий және толық өңделген материалдармен аяқталатын маршрут.</p>
+                                        <ul class="ls-snake-list ls-snake-list--small">
+                                            <li><i class="fa-solid fa-circle-check"></i> 170–190 дайын фото</li>
+                                            <li><i class="fa-solid fa-circle-check"></i> 10–20 ретушь</li>
+                                        </ul>
+                                        <a class="ls-snake-cta" href="https://wa.me/77713434499?text=Здравствуйте,%20хочу%20забронировать%20LOVE%20STORY%20(econom)">Оформить заявку</a>
+                                    </article>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="ls-tier-panel" id="ls-tier-standart" data-tier-panel>
+                            <div class="ls-snake-sequence">
+                                <svg class="ls-snake-route" viewBox="0 0 240 620" preserveAspectRatio="none" aria-hidden="true">
+                                    <path d="M120 24 C 40 58, 36 126, 120 160 C 202 192, 206 274, 120 308 C 36 342, 36 418, 120 450 C 202 482, 206 566, 120 596"></path>
+                                </svg>
+                                <span class="ls-snake-node ls-snake-node--1"></span>
+                                <span class="ls-snake-node ls-snake-node--2"></span>
+                                <span class="ls-snake-node ls-snake-node--3"></span>
+                                <span class="ls-snake-node ls-snake-node--4"></span>
+                                <div class="ls-snake-block ls-snake-block--left" data-scroll-reveal>
+                                    <article class="ls-snake-card">
+                                        <span class="ls-snake-step">01</span>
+                                        <span class="ls-snake-label">Маршрут</span>
+                                        <div class="ls-snake-price">130 000 тг</div>
+                                        <p class="ls-snake-description">Кең ауқымды локациялар, дрон кадрлары және толық түсірілім циклін қамтитын премиум деңгейдегі маршрут.</p>
+                                    </article>
+                                </div>
+                                <div class="ls-snake-block ls-snake-block--right" data-scroll-reveal>
+                                    <article class="ls-snake-card">
+                                        <span class="ls-snake-step">02</span>
+                                        <h4>Пакетке кіреді</h4>
+                                        <ul class="ls-snake-list">
+                                            <li><i class="fa-solid fa-check"></i> Макияж, прическа</li>
+                                            <li><i class="fa-solid fa-check"></i> Фотостудия 3 локация</li>
+                                            <li><i class="fa-solid fa-check"></i> Сыртта 2 локация</li>
+                                            <li><i class="fa-solid fa-check"></i> Дрон</li>
+                                            <li><i class="fa-solid fa-check"></i> Фотограф</li>
+                                            <li><i class="fa-solid fa-check"></i> Видеограф</li>
+                                            <li><i class="fa-solid fa-check"></i> 4 мольберт</li>
+                                            <li><i class="fa-solid fa-check"></i> Фотообработка (200–210 фото)</li>
+                                            <li><i class="fa-solid fa-check"></i> Ретушь (15–20 фото)</li>
+                                        </ul>
+                                    </article>
+                                </div>
+                                <div class="ls-snake-block ls-snake-block--left" data-scroll-reveal>
+                                    <article class="ls-snake-card">
+                                        <h4>Бізден алуға болады</h4>
+                                        <ul class="ls-snake-list ls-snake-list--small">
+                                            <li><i class="fa-solid fa-check"></i> Той көйлегі (фотосессия)</li>
+                                            <li><i class="fa-solid fa-check"></i> Этно образ</li>
+                                            <li><i class="fa-solid fa-check"></i> Жұптық жейде</li>
+                                            <li><i class="fa-solid fa-check"></i> Кешкі көйлек</li>
+                                        </ul>
+                                    </article>
+                                </div>
+                                <div class="ls-snake-block ls-snake-block--right" data-scroll-reveal>
+                                    <article class="ls-snake-card ls-snake-card--highlight ls-snake-card--cta">
+                                        <span class="ls-snake-step">04</span>
+                                        <span class="ls-snake-label">Финал</span>
+                                        <div class="ls-snake-price">130 000 тг</div>
+                                        <p class="ls-snake-description">Дрон, стильді кадрлар және толық продакшндік маршрутпен аяқталатын премиум-пакет.</p>
+                                        <ul class="ls-snake-list ls-snake-list--small">
+                                            <li><i class="fa-solid fa-circle-check"></i> 200–210 ретушьке дайын фото</li>
+                                            <li><i class="fa-solid fa-circle-check"></i> 15–20 фоторетушь</li>
+                                        </ul>
+                                        <a class="ls-snake-cta" href="https://wa.me/77713434499?text=Здравствуйте,%20хочу%20забронировать%20LOVE%20STORY%20(standart)">Оформить заявку</a>
+                                    </article>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="ls-tier-panel" id="ls-tier-vip" data-tier-panel>
+                            <div class="ls-snake-sequence">
+                                <svg class="ls-snake-route" viewBox="0 0 240 620" preserveAspectRatio="none" aria-hidden="true">
+                                    <path d="M120 24 C 40 58, 36 126, 120 160 C 202 192, 206 274, 120 308 C 36 342, 36 418, 120 450 C 202 482, 206 566, 120 596"></path>
+                                </svg>
+                                <span class="ls-snake-node ls-snake-node--1"></span>
+                                <span class="ls-snake-node ls-snake-node--2"></span>
+                                <span class="ls-snake-node ls-snake-node--3"></span>
+                                <span class="ls-snake-node ls-snake-node--4"></span>
+                                <div class="ls-snake-block ls-snake-block--left" data-scroll-reveal>
+                                    <article class="ls-snake-card">
+                                        <span class="ls-snake-step">01</span>
+                                        <span class="ls-snake-label">Маршрут</span>
+                                        <div class="ls-snake-price">150 000 тг</div>
+                                        <p class="ls-snake-description">Жоғары деңгейдегі сценарий, толық дербес жоспарлау және режиссерлік түсірілім сапасы.</p>
+                                    </article>
+                                </div>
+                                <div class="ls-snake-block ls-snake-block--right" data-scroll-reveal>
+                                    <article class="ls-snake-card">
+                                        <span class="ls-snake-step">02</span>
+                                        <h4>Пакетке кіреді</h4>
+                                        <ul class="ls-snake-list">
+                                            <li><i class="fa-solid fa-check"></i> Макияж, прическа</li>
+                                            <li><i class="fa-solid fa-check"></i> Фотостудия 3 локация</li>
+                                            <li><i class="fa-solid fa-check"></i> Сыртта 3 локация</li>
+                                            <li><i class="fa-solid fa-check"></i> Дрон</li>
+                                            <li><i class="fa-solid fa-check"></i> Фотограф</li>
+                                            <li><i class="fa-solid fa-check"></i> Видеограф</li>
+                                            <li><i class="fa-solid fa-check"></i> Сценарий</li>
+                                            <li><i class="fa-solid fa-check"></i> 6 мольберт</li>
+                                            <li><i class="fa-solid fa-check"></i> Фотообработка (200–210 фото)</li>
+                                            <li><i class="fa-solid fa-check"></i> Ретушь (15–20 фото)</li>
+                                        </ul>
+                                    </article>
+                                </div>
+                                <div class="ls-snake-block ls-snake-block--left" data-scroll-reveal>
+                                    <article class="ls-snake-card">
+                                        <span class="ls-snake-step">03</span>
+                                        <h4>Қосымша жағдайлар</h4>
+                                        <ul class="ls-snake-list ls-snake-list--small">
+                                            <li><i class="fa-solid fa-check"></i> Той көйлегі (фотосессия)</li>
+                                            <li><i class="fa-solid fa-check"></i> Этно образ</li>
+                                            <li><i class="fa-solid fa-check"></i> Жұптық жейде</li>
+                                            <li><i class="fa-solid fa-check"></i> Кешкі көйлек</li>
+                                            <li><i class="fa-solid fa-check"></i> Ерлерге костюм, туфли берілмейді</li>
+                                            <li><i class="fa-solid fa-check"></i> Локациялар арасындағы транспорт сіздерден</li>
+                                            <li><i class="fa-solid fa-check"></i> Сыртқы локацияға өздеріңіз төлейсіздер</li>
+                                        </ul>
+                                    </article>
+                                </div>
+                                <div class="ls-snake-block ls-snake-block--right" data-scroll-reveal>
+                                    <article class="ls-snake-card ls-snake-card--highlight ls-snake-card--cta">
+                                        <span class="ls-snake-step">04</span>
+                                        <span class="ls-snake-label">Финал</span>
+                                        <div class="ls-snake-price">150 000 тг</div>
+                                        <p class="ls-snake-description">Режиссерлік история, премиум локациялар және жеке продакшн-планмен аяқталатын vip-маршрут.</p>
+                                        <ul class="ls-snake-list ls-snake-list--small">
+                                            <li><i class="fa-solid fa-circle-check"></i> Индивидуальный сценарий</li>
+                                            <li><i class="fa-solid fa-circle-check"></i> Полный продакшен-цикл</li>
+                                        </ul>
+                                        <a class="ls-snake-cta" href="https://wa.me/77713434499?text=Здравствуйте,%20хочу%20забронировать%20LOVE%20STORY%20(vip)">Оформить заявку</a>
+                                    </article>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>
@@ -1213,42 +993,11 @@
         <div id="wedding-modal" class="ls-modal">
             <div class="ls-modal-content" style="max-width: 1200px;">
                 <div class="ls-modal-header">
-                    <h2>Той видеосъемка пакеттері</h2>
+                    <h2>Прайс-лист</h2>
                     <span class="wedding-close-modal ls-close-modal">&times;</span>
                 </div>
                 <div class="ls-modal-body">
                     
-                    <!-- SECTION 1: СТАНДАРТ -->
-                    <h3 class="wedding-section-title"><i class="fa-solid fa-clapperboard"></i> SECTION 1 — СТАНДАРТ</h3>
-                    <div class="ls-packages wedding-packages" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-bottom: 40px; gap: 20px;">
-                        
-                        <div class="ls-package">
-                            <div class="ls-pkg-header">СТАНДАРТ ВИДЕО</div>
-                            <ul class="ls-pkg-list">
-                                <li><i class="fa-solid fa-video"></i> 1 камера</li>
-                                <li><i class="fa-solid fa-check"></i> Стабилизатор (Ronin)</li>
-                                <li><i class="fa-solid fa-check"></i> Мобилограф</li>
-                                <li><i class="fa-solid fa-check"></i> Чистый звук</li>
-                                <li><i class="fa-solid fa-check"></i> Флешка</li>
-                            </ul>
-                            <div class="ls-pkg-price">💰 69 000 тг <span>(жеңілдікпен)</span></div>
-                        </div>
-
-                        <div class="ls-package ls-pkg-standart">
-                            <div class="ls-pkg-header">СТАНДАРТ ВИДЕО 2</div>
-                            <ul class="ls-pkg-list">
-                                <li><i class="fa-solid fa-video"></i> 1 камера (видеооператор)</li>
-                                <li><i class="fa-solid fa-check"></i> Стабилизатор (Ronin)</li>
-                                <li><i class="fa-solid fa-camera"></i> 1 фотограф</li>
-                                <li><i class="fa-solid fa-check"></i> Мобилограф</li>
-                                <li><i class="fa-solid fa-check"></i> Чистый звук</li>
-                                <li><i class="fa-solid fa-check"></i> Флешка</li>
-                                <li><i class="fa-solid fa-image"></i> Фотогалерия (сайт)</li>
-                            </ul>
-                            <div class="ls-pkg-price highlight">💰 99 000 тг <span>(жеңілдікпен)</span></div>
-                        </div>
-                    </div>
-
                     <!-- SECTION 2: ПРЕМИУМ -->
                     <h3 class="wedding-section-title"><i class="fa-solid fa-clapperboard"></i> SECTION 2 — ПРЕМИУМ</h3>
                     <div class="ls-packages wedding-packages" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-bottom: 40px; gap: 20px;">
@@ -1256,70 +1005,47 @@
                         <div class="ls-package">
                             <div class="ls-pkg-header">ПАКЕТ ПРЕМИУМ</div>
                             <ul class="ls-pkg-list">
-                                <li><i class="fa-solid fa-video"></i> 2х камера</li>
+                                <li><i class="fa-solid fa-video"></i> 2 камеры</li>
                                 <li><i class="fa-solid fa-check"></i> Видеооператор (штатив)</li>
                                 <li><i class="fa-solid fa-check"></i> Видеооператор (стабилизатор)</li>
-                                <li><i class="fa-solid fa-check"></i> 1 мобилограф</li>
+                                <li><i class="fa-solid fa-check"></i> Мобилограф</li>
                                 <li><i class="fa-solid fa-check"></i> Чистый звук</li>
                                 <li><i class="fa-solid fa-check"></i> Флешка</li>
                             </ul>
-                            <div class="ls-pkg-price">💰 129 000 тг <span>(жеңілдікпен)</span></div>
+                            <div class="ls-pkg-price">💰 139 000 ₸</div>
                         </div>
 
                         <div class="ls-package ls-pkg-standart">
-                            <div class="ls-pkg-header">ПАКЕТ ПРЕМИУМ 2<br><span style="font-size:0.8rem; font-weight:400; color:#666;">(только банкет)</span></div>
+                            <div class="ls-pkg-header">ПАКЕТ ПРЕМИУМ 2<br><span style="font-size:0.8rem; font-weight:400; color:#666;">(Только банкет)</span></div>
                             <ul class="ls-pkg-list">
-                                <li><i class="fa-solid fa-video"></i> 2х камера</li>
+                                <li><i class="fa-solid fa-video"></i> 2 камеры</li>
                                 <li><i class="fa-solid fa-check"></i> Видеооператор (штатив)</li>
                                 <li><i class="fa-solid fa-check"></i> Видеооператор (стабилизатор)</li>
                                 <li><i class="fa-regular fa-clock"></i> Real Time</li>
                                 <li><i class="fa-solid fa-check"></i> Чистый звук</li>
                                 <li><i class="fa-solid fa-camera"></i> Фотограф</li>
                                 <li><i class="fa-solid fa-check"></i> Мобилограф</li>
-                                <li><i class="fa-solid fa-qrcode"></i> QR фото</li>
+                                <li><i class="fa-solid fa-qrcode"></i> QR Фото</li>
                                 <li><i class="fa-solid fa-check"></i> Флешка</li>
                             </ul>
-                            <div class="ls-pkg-price highlight">💰 149 000 тг <span>(жеңілдікпен)</span></div>
+                            <div class="ls-pkg-price highlight">💰 179 000 ₸</div>
                         </div>
 
                         <div class="ls-package ls-pkg-standart" style="border-color: #b08968;">
-                            <div class="ls-pkg-header" style="color: #b08968;">ПАКЕТ ПРЕМИУМ 3<br><span style="font-size:0.8rem; font-weight:400; color:#666;">(полный день)</span></div>
+                            <div class="ls-pkg-header" style="color: #b08968;">ПАКЕТ ПРЕМИУМ 3<br><span style="font-size:0.8rem; font-weight:400; color:#666;">(Полный день)</span></div>
                             <ul class="ls-pkg-list">
-                                <li><i class="fa-solid fa-video"></i> 2х камера</li>
+                                <li><i class="fa-solid fa-video"></i> 2 камеры</li>
                                 <li><i class="fa-solid fa-check"></i> Видеооператор (штатив)</li>
                                 <li><i class="fa-solid fa-check"></i> Видеооператор (стабилизатор)</li>
                                 <li><i class="fa-regular fa-clock"></i> Real Time</li>
                                 <li><i class="fa-solid fa-check"></i> Чистый звук</li>
                                 <li><i class="fa-solid fa-camera"></i> Фотограф</li>
                                 <li><i class="fa-solid fa-check"></i> Мобилограф</li>
-                                <li><i class="fa-solid fa-qrcode"></i> QR фото</li>
+                                <li><i class="fa-solid fa-qrcode"></i> QR Фото</li>
                                 <li><i class="fa-solid fa-check"></i> Флешка</li>
                             </ul>
-                            <div class="ls-pkg-price highlight" style="color: #b08968;">💰 169 000 тг <span>(жеңілдікпен)</span></div>
+                            <div class="ls-pkg-price highlight" style="color: #b08968;">💰 199 000 ₸</div>
                         </div>
-                    </div>
-
-                    <!-- SECTION 3: VIP -->
-                    <h3 class="wedding-section-title"><i class="fa-solid fa-clapperboard"></i> SECTION 3 — VIP</h3>
-                    <div class="ls-packages wedding-packages" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-                        
-                        <div class="ls-package ls-pkg-standart" style="background: linear-gradient(145deg, #fff, #fdfbf7); border: 2px solid #b08968; box-shadow: 0 15px 40px rgba(176, 137, 104, 0.15);">
-                            <div class="ls-pkg-header" style="color: #b08968; font-size: 1.5rem;">ПАКЕТ VIP</div>
-                            <ul class="ls-pkg-list" style="column-count: 2; column-gap: 20px;">
-                                <li><i class="fa-solid fa-video"></i> 3х камера</li>
-                                <li><i class="fa-solid fa-check"></i> 1 видеооператор (кран)</li>
-                                <li><i class="fa-solid fa-check"></i> 1 видеооператор (штатив)</li>
-                                <li><i class="fa-solid fa-check"></i> 1 видеооператор (стабилизатор)</li>
-                                <li><i class="fa-regular fa-clock"></i> Real Time</li>
-                                <li><i class="fa-solid fa-camera"></i> 1 фотограф</li>
-                                <li><i class="fa-solid fa-qrcode"></i> QR фото</li>
-                                <li><i class="fa-solid fa-check"></i> 1 мобилограф</li>
-                                <li><i class="fa-solid fa-check"></i> Чистый звук</li>
-                                <li><i class="fa-solid fa-check"></i> Флешка</li>
-                            </ul>
-                            <div class="ls-pkg-price" style="color: #b08968;">💰 249 000 тг <span>(жеңілдікпен)</span></div>
-                        </div>
-                        
                     </div>
 
                 </div>
@@ -1363,8 +1089,11 @@
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script>
+    <script src="js/vignette-viewer-react.js"></script>
     <script src="js/script.js"></script>
-    <script src="js/booking-availability.js"></script>
 </body>
 </html>
 

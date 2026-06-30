@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('.header');
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav');
-    const mobileBookingShortcut = document.querySelector('[data-open-vignette-booking]');
 
     const closeNavMenu = () => {
         if (!nav.classList.contains('active')) {
@@ -373,638 +372,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Premium Vignette Modal Logic ---
+    // --- Vignette React Viewer ---
     const vignetteCard = document.getElementById('vignette-card');
-    const vignetteModal = document.getElementById('vignette-modal');
-    const closeVignetteBtn = document.querySelector('.vp-close');
+    const openVignetteTriggers = document.querySelectorAll('[data-open-vignette]');
 
-    const getAlbumLeaves = (album) => {
-        return Array.from(album.querySelectorAll('.vp-leaf'))
-            .sort((a, b) => Number(a.dataset.leaf || '0') - Number(b.dataset.leaf || '0'));
-    };
+    if (window.VignetteViewerApp && typeof window.VignetteViewerApp.init === 'function') {
+        const vignetteApi = window.VignetteViewerApp.init();
 
-    const VP_FLIP_DURATION = 1650;
-    const VP_DRAG_PROGRESS_DISTANCE = 300;
+        const openVignette = () => {
+            closeNavMenu();
+            if (vignetteApi && typeof vignetteApi.open === 'function') {
+                vignetteApi.open();
+            }
+        };
 
-    const applyAlbumVisualState = (album, state) => {
-        const leaves = getAlbumLeaves(album);
-        const maxState = leaves.length;
-        const bounded = Math.max(0, Math.min(maxState, state));
-
-        album.dataset.state = String(bounded);
-        album.dataset.maxState = String(maxState);
-
-        leaves.forEach((leaf, index) => {
-            const leafNumber = index + 1;
-            const isFlipped = leafNumber <= bounded;
-
-            leaf.style.transform = isFlipped ? 'rotateY(-180deg)' : 'rotateY(0deg)';
-            leaf.style.zIndex = isFlipped
-                ? String(leafNumber)
-                : String(maxState + (maxState - leafNumber + 1));
-        });
-    };
-
-    const setAlbumState = (album, nextState, duration = VP_FLIP_DURATION) => {
-        const maxState = Number(album.dataset.maxState || getAlbumLeaves(album).length || 0);
-        const bounded = Math.max(0, Math.min(maxState, nextState));
-        const previousState = Number(album.dataset.state || '0');
-
-        if (previousState === bounded) {
-            applyAlbumVisualState(album, bounded);
-            return;
+        if (vignetteCard) {
+            vignetteCard.addEventListener('click', openVignette);
         }
-
-        album.classList.add('vp-animating');
-        applyAlbumVisualState(album, bounded);
-
-        if (duration === 0) {
-            album.classList.remove('vp-animating');
-            return;
-        }
-
-        const leaves = getAlbumLeaves(album);
-        const animatedLeafIndex = bounded > previousState ? previousState : Math.max(0, bounded);
-        const animatedLeaf = leaves[animatedLeafIndex] || null;
-
-        const clearAnimating = () => {
-            album.classList.remove('vp-animating');
-        };
-
-        let released = false;
-        const releaseOnce = () => {
-            if (released) {
-                return;
-            }
-            released = true;
-            clearAnimating();
-        };
-
-        if (animatedLeaf) {
-            const handleTransitionEnd = (event) => {
-                if (event.propertyName === 'transform') {
-                    releaseOnce();
-                }
-            };
-            animatedLeaf.addEventListener('transitionend', handleTransitionEnd, { once: true });
-        }
-
-        window.setTimeout(releaseOnce, duration + 120);
-    };
-
-    const initPremiumAlbum = (album) => {
-        const leaves = getAlbumLeaves(album);
-        const controls = album.querySelectorAll('.vp-control');
-
-        if (leaves.length < 2) {
-            return;
-        }
-
-        applyAlbumVisualState(album, Number(album.dataset.state || '0'));
-
-        let dragging = false;
-        let moved = false;
-        let startX = 0;
-        let activeLeaf = null;
-        let dragMode = '';
-        let lastDx = 0;
-        let dragFrameId = null;
-
-        const getState = () => Number(album.dataset.state || '0');
-
-        const renderDragFrame = () => {
-            dragFrameId = null;
-
-            if (!dragging || !activeLeaf) {
-                return;
-            }
-
-            let progress = 0;
-            if (dragMode === 'forward' && lastDx < 0) {
-                progress = Math.min(1, Math.abs(lastDx) / VP_DRAG_PROGRESS_DISTANCE);
-                activeLeaf.style.transform = `rotateY(${-180 * progress}deg)`;
-            } else if (dragMode === 'backward' && lastDx > 0) {
-                progress = Math.min(1, lastDx / VP_DRAG_PROGRESS_DISTANCE);
-                activeLeaf.style.transform = `rotateY(${-180 + 180 * progress}deg)`;
-            }
-        };
-
-        controls.forEach((control) => {
-            control.addEventListener('click', (event) => {
-                event.stopPropagation();
-                if (album.classList.contains('vp-animating')) {
-                    return;
-                }
-                const state = getState();
-                const maxState = Number(album.dataset.maxState || leaves.length);
-                if (control.dataset.action === 'next' && state < maxState) {
-                    setAlbumState(album, state + 1);
-                }
-                if (control.dataset.action === 'prev' && state > 0) {
-                    setAlbumState(album, state - 1);
-                }
-            });
-        });
-
-        album.addEventListener('click', (event) => {
-            if (moved || album.classList.contains('vp-animating')) {
-                moved = false;
-                return;
-            }
-            const bounds = album.getBoundingClientRect();
-            const clickX = event.clientX - bounds.left;
-            const isRightSide = clickX > bounds.width / 2;
-            const state = getState();
-            const maxState = Number(album.dataset.maxState || leaves.length);
-
-            if (isRightSide && state < maxState) {
-                setAlbumState(album, state + 1);
-                return;
-            }
-            if (!isRightSide && state > 0) {
-                setAlbumState(album, state - 1);
-            }
-        });
-
-        album.addEventListener('pointerdown', (event) => {
-            if (album.classList.contains('vp-animating')) {
-                return;
-            }
-
-            const state = getState();
-            dragging = true;
-            moved = false;
-            startX = event.clientX;
-            activeLeaf = null;
-            dragMode = '';
-
-            const maxState = Number(album.dataset.maxState || leaves.length);
-            const bounds = album.getBoundingClientRect();
-            const isRightSide = event.clientX - bounds.left > bounds.width / 2;
-
-            if (isRightSide && state < maxState) {
-                activeLeaf = leaves[state];
-                dragMode = 'forward';
-            } else if (!isRightSide && state > 0) {
-                activeLeaf = leaves[state - 1];
-                dragMode = 'backward';
-            }
-
-            if (activeLeaf) {
-                activeLeaf.classList.add('vp-is-dragging');
-                activeLeaf.style.transition = 'none';
-                album.classList.add('vp-dragging');
-            } else {
-                dragging = false;
-                return;
-            }
-
-            if (event.pointerId !== undefined) {
-                album.setPointerCapture(event.pointerId);
-            }
-        });
-
-        album.addEventListener('pointermove', (event) => {
-            if (!dragging || !activeLeaf) {
-                return;
-            }
-
-            const dx = event.clientX - startX;
-            if (Math.abs(dx) > 8) {
-                moved = true;
-            }
-
-            lastDx = dx;
-            if (dragFrameId === null) {
-                dragFrameId = window.requestAnimationFrame(renderDragFrame);
-            }
-        });
-
-        const finishDrag = (event) => {
-            if (!dragging) {
-                return;
-            }
-
-            const dx = event.clientX - startX;
-            const threshold = 82;
-            const state = getState();
-
-            if (dragFrameId !== null) {
-                window.cancelAnimationFrame(dragFrameId);
-                dragFrameId = null;
-            }
-
-            if (activeLeaf) {
-                activeLeaf.classList.remove('vp-is-dragging');
-                activeLeaf.style.transform = '';
-                activeLeaf.style.transition = '';
-            }
-            album.classList.remove('vp-dragging');
-
-            if (dragMode === 'forward') {
-                setAlbumState(album, dx < -threshold ? state + 1 : state);
-            }
-            if (dragMode === 'backward') {
-                setAlbumState(album, dx > threshold ? state - 1 : state);
-            }
-
-            if (Math.abs(dx) < 10) {
-                setAlbumState(album, state, 0);
-            }
-
-            dragging = false;
-            activeLeaf = null;
-            dragMode = '';
-            lastDx = 0;
-            if (event.pointerId !== undefined) {
-                album.releasePointerCapture(event.pointerId);
-            }
-        };
-
-        album.addEventListener('pointerup', finishDrag);
-        album.addEventListener('pointercancel', finishDrag);
-        album.addEventListener('pointerleave', (event) => {
-            if (dragging) {
-                finishDrag(event);
-            }
-        });
-    };
-
-    if (vignetteCard && vignetteModal) {
-        const localNav = vignetteModal.querySelector('.vp-sticky-nav');
-        const localNavToggle = vignetteModal.querySelector('.vp-nav-toggle');
-        const vignetteNavLinks = vignetteModal.querySelectorAll('.vp-nav-link');
-        const locationsFab = vignetteModal.querySelector('[data-go-locations]');
-        const bodyScroll = vignetteModal.querySelector('.vp-modal-body');
-        const sections = vignetteModal.querySelectorAll('#vp-pricing, #vp-booking, .vp-template-section');
-        const openVignetteTriggers = document.querySelectorAll('[data-open-vignette]');
-        const pricingCards = vignetteModal.querySelectorAll('.vp-price-card.vp-reveal');
-        let pricingObserver = null;
-
-        const closeLocalNav = () => {
-            if (!localNav || !localNavToggle) {
-                return;
-            }
-            localNav.classList.remove('is-open');
-            localNavToggle.setAttribute('aria-expanded', 'false');
-            const label = localNavToggle.querySelector('.vp-nav-toggle-text');
-            if (label) {
-                label.textContent = 'Меню';
-            }
-        };
-
-        if (localNav && localNavToggle) {
-            localNavToggle.addEventListener('click', () => {
-                const willOpen = !localNav.classList.contains('is-open');
-                localNav.classList.toggle('is-open', willOpen);
-                localNavToggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
-                const label = localNavToggle.querySelector('.vp-nav-toggle-text');
-                if (label) {
-                    label.textContent = willOpen ? 'Жабу' : 'Меню';
-                }
-            });
-        }
-
-        const revealPricingCards = () => {
-            if (!pricingCards.length) {
-                return;
-            }
-            pricingCards.forEach((card, index) => {
-                window.setTimeout(() => {
-                    card.classList.add('is-visible');
-                }, index * 70);
-            });
-        };
-
-        if ('IntersectionObserver' in window && pricingCards.length) {
-            pricingObserver = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        pricingObserver.unobserve(entry.target);
-                    }
-                });
-            }, {
-                root: bodyScroll || null,
-                threshold: 0.2
-            });
-
-            pricingCards.forEach((card) => pricingObserver.observe(card));
-        }
-
-        const setActiveNav = (targetId) => {
-            vignetteNavLinks.forEach((link) => {
-                const isActive = link.dataset.scrollTarget === targetId;
-                link.classList.toggle('is-active', isActive);
-            });
-        };
-
-        vignetteNavLinks.forEach((link) => {
-            link.addEventListener('click', () => {
-                const targetId = link.dataset.scrollTarget;
-                const target = vignetteModal.querySelector(`#${targetId}`);
-                if (!target || !bodyScroll) {
-                    return;
-                }
-                setActiveNav(targetId);
-                const topOffset = target.offsetTop - 12;
-                bodyScroll.scrollTo({ top: topOffset, behavior: 'smooth' });
-                closeLocalNav();
-            });
-        });
-
-        const openVignetteModal = (targetId = 'vp-pricing') => {
-            vignetteModal.classList.add('visible');
-            vignetteModal.setAttribute('aria-hidden', 'false');
-            document.body.classList.add('no-scroll');
-
-            if (bodyScroll) {
-                const target = vignetteModal.querySelector(`#${targetId}`);
-                const topOffset = target ? Math.max(target.offsetTop - 12, 0) : 0;
-                bodyScroll.scrollTo({ top: topOffset, behavior: 'auto' });
-            }
-
-            setActiveNav(targetId);
-            closeLocalNav();
-            if (!pricingObserver) {
-                revealPricingCards();
-            }
-        };
-
-        if (bodyScroll && sections.length) {
-            const syncActiveLink = () => {
-                const pivot = bodyScroll.scrollTop + 140;
-                let activeId = sections[0].id;
-                sections.forEach((section) => {
-                    if (section.offsetTop <= pivot) {
-                        activeId = section.id;
-                    }
-                });
-                setActiveNav(activeId);
-            };
-
-            bodyScroll.addEventListener('scroll', syncActiveLink);
-            syncActiveLink();
-        }
-
-        vignetteModal.querySelectorAll('.vp-album').forEach((album) => {
-            initPremiumAlbum(album);
-        });
-
-        const closeVignetteModal = () => {
-            const nestedWhyUsModal = document.getElementById('why-us-modal');
-            if (nestedWhyUsModal) {
-                nestedWhyUsModal.classList.remove('is-visible');
-                nestedWhyUsModal.setAttribute('aria-hidden', 'true');
-            }
-            const nestedFaqModal = document.getElementById('faq-modal');
-            if (nestedFaqModal) {
-                nestedFaqModal.classList.remove('is-visible');
-                nestedFaqModal.setAttribute('aria-hidden', 'true');
-            }
-            vignetteModal.classList.remove('visible');
-            vignetteModal.setAttribute('aria-hidden', 'true');
-            document.body.classList.remove('no-scroll');
-            closeLocalNav();
-        };
-
-        if (locationsFab) {
-            locationsFab.addEventListener('click', (event) => {
-                event.preventDefault();
-                closeVignetteModal();
-
-                const locationsSection = document.getElementById('locations');
-                if (!locationsSection) {
-                    window.location.hash = 'locations';
-                    return;
-                }
-
-                const headerOffset = header ? header.offsetHeight + 8 : 88;
-                const top = locationsSection.getBoundingClientRect().top + window.pageYOffset - headerOffset;
-                window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
-            });
-        }
-
-        vignetteCard.addEventListener('click', () => openVignetteModal('vp-pricing'));
 
         openVignetteTriggers.forEach((trigger) => {
             trigger.addEventListener('click', (event) => {
                 event.preventDefault();
-                closeNavMenu();
-                openVignetteModal('vp-pricing');
+                openVignette();
             });
         });
-
-        if (mobileBookingShortcut) {
-            mobileBookingShortcut.addEventListener('click', () => {
-                const insideVignetteModal = !!mobileBookingShortcut.closest('#vignette-modal');
-                if (insideVignetteModal) {
-                    closeLocalNav();
-                } else {
-                    closeNavMenu();
-                }
-                openVignetteModal('vp-booking');
-            });
-        }
-
-        if (closeVignetteBtn) {
-            closeVignetteBtn.addEventListener('click', closeVignetteModal);
-        }
-
-        vignetteModal.addEventListener('click', (event) => {
-            if (event.target === vignetteModal) {
-                closeVignetteModal();
-            }
-        });
-
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && vignetteModal.classList.contains('visible')) {
-                closeVignetteModal();
-            }
-        });
     }
 
-    // --- Why Us Floating Modal ---
-    const whyUsModal = document.getElementById('why-us-modal');
-    const whyUsOpenButtons = document.querySelectorAll('[data-why-us-open]');
-    const whyUsCloseButton = whyUsModal ? whyUsModal.querySelector('[data-why-us-close]') : null;
-
-    if (whyUsModal && whyUsOpenButtons.length) {
-        const openWhyUsModal = () => {
-            whyUsModal.classList.add('is-visible');
-            whyUsModal.setAttribute('aria-hidden', 'false');
-            document.body.classList.add('no-scroll');
-        };
-
-        const closeWhyUsModal = () => {
-            whyUsModal.classList.remove('is-visible');
-            whyUsModal.setAttribute('aria-hidden', 'true');
-            const isVignetteStillVisible = !!(vignetteModal && vignetteModal.classList.contains('visible'));
-            if (!isVignetteStillVisible) {
-                document.body.classList.remove('no-scroll');
-            }
-        };
-
-        whyUsOpenButtons.forEach((button) => {
-            button.addEventListener('click', openWhyUsModal);
-        });
-
-        if (whyUsCloseButton) {
-            whyUsCloseButton.addEventListener('click', closeWhyUsModal);
-        }
-
-        whyUsModal.addEventListener('click', (event) => {
-            if (event.target === whyUsModal) {
-                closeWhyUsModal();
-            }
-        });
-
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && whyUsModal.classList.contains('is-visible')) {
-                closeWhyUsModal();
-            }
-        });
-    }
-
-    // --- FAQ Floating Modal ---
-    const faqModal = document.getElementById('faq-modal');
-    const faqOpenButtons = document.querySelectorAll('[data-faq-open]');
-    const faqCloseButton = faqModal ? faqModal.querySelector('[data-faq-close]') : null;
-
-    if (faqModal && faqOpenButtons.length) {
-        const openFaqModal = () => {
-            faqModal.classList.add('is-visible');
-            faqModal.setAttribute('aria-hidden', 'false');
-            document.body.classList.add('no-scroll');
-        };
-
-        const closeFaqModal = () => {
-            faqModal.classList.remove('is-visible');
-            faqModal.setAttribute('aria-hidden', 'true');
-            const isVignetteStillVisible = !!(vignetteModal && vignetteModal.classList.contains('visible'));
-            const isWhyUsStillVisible = !!(whyUsModal && whyUsModal.classList.contains('is-visible'));
-            if (!isVignetteStillVisible && !isWhyUsStillVisible) {
-                document.body.classList.remove('no-scroll');
-            }
-        };
-
-        faqOpenButtons.forEach((button) => {
-            button.addEventListener('click', openFaqModal);
-        });
-
-        if (faqCloseButton) {
-            faqCloseButton.addEventListener('click', closeFaqModal);
-        }
-
-        faqModal.addEventListener('click', (event) => {
-            if (event.target === faqModal) {
-                closeFaqModal();
-            }
-        });
-
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && faqModal.classList.contains('is-visible')) {
-                closeFaqModal();
-            }
-        });
-    }
-
-    // --- Booking Calendar Integration (Google Sheets parser) ---
-    const fetchDatesBtn = document.getElementById('fetch-dates-btn');
-    const loadingSpinner = document.getElementById('loading-spinner');
-    const calendarWrapper = document.getElementById('calendar-wrapper');
-    const calContainer = document.getElementById('booking-calendar');
-    const bookingAction = document.getElementById('booking-action');
-    const selectedDateDisplay = document.getElementById('selected-date-display');
-    const whatsappBtn = document.getElementById('whatsapp-btn');
-
-    // Make dates clickable UI logic
-    const buildCalendarUI = (busyDatesArray) => {
-        calContainer.innerHTML = '';
-        
-        const today = new Date();
-        const days = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
-        const months = ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'];
-        
-        // Show 14 days
-        for (let i = 0; i < 14; i++) {
-            const date = new Date(today);
-            date.setDate(today.getDate() + i);
-            
-            const dayEls = document.createElement('div');
-            dayEls.classList.add('cal-day');
-            
-            const dayNumStr = date.getDate();
-            const monthStr = months[date.getMonth()];
-            const dayNameStr = days[date.getDay()];
-            
-            // Format to match Google sheet text like: '15.03.2024'
-            const d = String(date.getDate()).padStart(2, '0');
-            const m = String(date.getMonth() + 1).padStart(2, '0');
-            const y = date.getFullYear();
-            const dateStringFormat = `${d}.${m}.${y}`;
-            
-            // Check if this date string exists in the busy list
-            let isBooked = false;
-            // Since we can't reliably parse raw google sheet html easily here without an API key or proper CSV output,
-            // I've added a realistic randomized fallback if fetch fails, but it will try to get real data.
-            if(busyDatesArray && busyDatesArray.length > 0) {
-                 isBooked = busyDatesArray.some(busyDate => busyDate.includes(d) && busyDate.includes(m));
-            } else {
-                 // Fallback if parsing fails - just visually beautiful mock
-                 isBooked = Math.random() < 0.3; 
-            }
-
-            if (isBooked) {
-                dayEls.classList.add('booked');
-                dayEls.title = 'Дата занята';
-            } else {
-                dayEls.classList.add('available');
-                dayEls.title = 'Нажмите, чтобы выбрать дату';
-            }
-            
-            dayEls.innerHTML = `
-                <span class="day-name">${dayNameStr}</span>
-                <span class="day-num">${dayNumStr}</span>
-                <span class="day-name">${monthStr}</span>
-            `;
-
-            // Click interaction
-            if (!isBooked) {
-                dayEls.addEventListener('click', () => {
-                    document.querySelectorAll('.cal-day').forEach(el => el.classList.remove('selected'));
-                    dayEls.classList.add('selected');
-                    
-                    const formattedDate = `${dayNumStr} ${monthStr}`;
-                    selectedDateDisplay.textContent = formattedDate;
-                    
-                    const textMessage = encodeURIComponent(`Сәлеметсіз бе! ${formattedDate} күні RAKurs фотостудиясын броньдағым келеді. Бос уақытты айтып жібересіз бе?`);
-                    whatsappBtn.href = `https://wa.me/77713434499?text=${textMessage}`;
-                    
-                    bookingAction.style.display = 'flex';
-                    bookingAction.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                });
-            }
-            
-            calContainer.appendChild(dayEls);
-        }
-    }
-
-    if(fetchDatesBtn) {
-        fetchDatesBtn.addEventListener('click', () => {
-            fetchDatesBtn.style.display = 'none';
-            loadingSpinner.style.display = 'block';
-            
-            // Simulate API request delay to make it feel like "system analysis"
-            setTimeout(() => {
-                loadingSpinner.style.display = 'none';
-                calendarWrapper.style.display = 'block';
-                // Because we don't have a direct JSON API key for your specific google sheet sheet,
-                // The frontend gracefully generates the calendar UI using the fallback visual logic
-                buildCalendarUI([]); 
-            }, 1500);
-        });
-    }
 });
 
 // Initialize New Premium Mobile Features Swiper
@@ -1046,39 +439,113 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const lsCard = document.getElementById('lovestory-card');
     const lsModal = document.getElementById('lovestory-modal');
-    
-    if (lsCard && lsModal) {
-        const lsCloseBtn = lsModal.querySelector('.ls-close-modal');
+    const lsStoryModal = document.getElementById('lovestory-story-modal');
+    const lsClassicModal = document.getElementById('lovestory-classic-modal');
+    const openStoryBtn = document.querySelector('[data-open-love-story-works]');
+    const openClassicBtn = document.querySelector('[data-open-love-story-pricing]');
+    const backButtons = document.querySelectorAll('[data-back-to-love-story-choice]');
+    const closeChoiceButton = document.querySelector('[data-close-lovestory-choice]');
+    const pricingTabs = document.querySelectorAll('[data-pricing-target]');
+    const pricingPanels = document.querySelectorAll('[data-tier-panel]');
+    const snakeCards = document.querySelectorAll('.ls-snake-card');
 
-        // Open modal
+    const closeAllLoveStoryModals = () => {
+        if (lsModal) lsModal.classList.remove('visible');
+        if (lsStoryModal) lsStoryModal.classList.remove('visible');
+        if (lsClassicModal) lsClassicModal.classList.remove('visible');
+        document.body.style.overflow = '';
+    };
+
+    if (lsCard && lsModal) {
         lsCard.addEventListener('click', () => {
             lsModal.classList.add('visible');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            document.body.style.overflow = 'hidden';
         });
 
-        // Close via button
-        if (lsCloseBtn) {
-            lsCloseBtn.addEventListener('click', () => {
+        if (closeChoiceButton) {
+            closeChoiceButton.addEventListener('click', closeAllLoveStoryModals);
+        }
+
+        if (openStoryBtn) {
+            openStoryBtn.addEventListener('click', () => {
                 lsModal.classList.remove('visible');
-                document.body.style.overflow = '';
+                if (lsStoryModal) {
+                    lsStoryModal.classList.add('visible');
+                }
             });
         }
 
-        // Close via outside click
-        lsModal.addEventListener('click', (e) => {
-            if (e.target === lsModal) {
+        if (openClassicBtn) {
+            openClassicBtn.addEventListener('click', () => {
                 lsModal.classList.remove('visible');
-                document.body.style.overflow = '';
+                if (lsClassicModal) {
+                    lsClassicModal.classList.add('visible');
+                }
+            });
+        }
+
+        backButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                if (lsStoryModal && lsStoryModal.classList.contains('visible')) {
+                    lsStoryModal.classList.remove('visible');
+                    lsModal.classList.add('visible');
+                    return;
+                }
+                if (lsClassicModal && lsClassicModal.classList.contains('visible')) {
+                    lsClassicModal.classList.remove('visible');
+                    lsModal.classList.add('visible');
+                }
+            });
+        });
+
+        [lsModal, lsStoryModal, lsClassicModal].forEach((modal) => {
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        closeAllLoveStoryModals();
+                    }
+                });
             }
         });
 
-        // Close via ESC key
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && lsModal.classList.contains('visible')) {
-                lsModal.classList.remove('visible');
-                document.body.style.overflow = '';
+            if (e.key === 'Escape' && (lsModal.classList.contains('visible') || lsStoryModal.classList.contains('visible') || lsClassicModal.classList.contains('visible'))) {
+                closeAllLoveStoryModals();
             }
         });
+    }
+
+    pricingTabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+            const target = tab.dataset.pricingTarget;
+            pricingTabs.forEach((item) => item.classList.toggle('active', item === tab));
+            pricingPanels.forEach((panel) => {
+                panel.classList.toggle('active', panel.id === target);
+            });
+        });
+    });
+
+    const revealSnakeCards = () => {
+        snakeCards.forEach((card, index) => {
+            setTimeout(() => {
+                card.classList.add('is-visible');
+            }, index * 180);
+        });
+    };
+
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.18 });
+
+        snakeCards.forEach((card) => observer.observe(card));
+    } else {
+        revealSnakeCards();
     }
 });
 // --- Қыз ұзату Modal Logic ---

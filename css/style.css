@@ -1536,7 +1536,7 @@ body.no-scroll {
     position: absolute;
     left: 50%;
     top: 0;
-    width: 240px;
+    width: 280px;
     height: 100%;
     transform: translateX(-50%);
     pointer-events: none;
@@ -1544,18 +1544,24 @@ body.no-scroll {
 }
 .ls-snake-route path {
     stroke: #b08968;
-    stroke-width: 8;
+    stroke-width: 10;
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
-    opacity: 0.72;
-    filter: drop-shadow(0 0 10px rgba(176, 137, 104, 0.08));
+    opacity: 0.8;
+    stroke-dasharray: 900;
+    stroke-dashoffset: 900;
+    transition: stroke-dashoffset 2.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    filter: drop-shadow(0 0 14px rgba(176, 137, 104, 0.12));
+}
+.ls-snake-sequence.is-drawing .ls-snake-route path {
+    stroke-dashoffset: 0;
 }
 .ls-snake-node {
     position: absolute;
     left: 50%;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     transform: translateX(-50%);
     border-radius: 50%;
     background: linear-gradient(180deg, #fffdf9, #d6b89b);
@@ -1563,7 +1569,15 @@ body.no-scroll {
     box-shadow: 0 0 0 10px rgba(176, 137, 104, 0.04), 0 10px 24px rgba(176, 137, 104, 0.16);
     z-index: 3;
 }
-.ls-snake-node--1 { top: 7%; }
+.ls-snake-sequence.is-drawing .ls-snake-node {
+    animation: ls-snake-pulse 1.8s ease-out 0.5s 1;
+}
+@keyframes ls-snake-pulse {
+    0% { transform: translateX(-50%) scale(0.92); box-shadow: 0 0 0 0 rgba(176, 137, 104, 0.28), 0 10px 24px rgba(176, 137, 104, 0.16); }
+    45% { transform: translateX(-50%) scale(1.08); box-shadow: 0 0 0 10px rgba(176, 137, 104, 0.08), 0 12px 26px rgba(176, 137, 104, 0.2); }
+    100% { transform: translateX(-50%) scale(1); box-shadow: 0 0 0 10px rgba(176, 137, 104, 0.04), 0 10px 24px rgba(176, 137, 104, 0.16); }
+}
+.ls-snake-node--1 { top: 8%; }
 .ls-snake-node--2 { top: 31%; }
 .ls-snake-node--3 { top: 55%; }
 .ls-snake-node--4 { top: 82%; }

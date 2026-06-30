@@ -515,15 +515,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const triggerSnakeDrawing = (panel) => {
+        const sequence = panel ? panel.querySelector('.ls-snake-sequence') : null;
+        if (sequence) {
+            sequence.classList.remove('is-drawing');
+            requestAnimationFrame(() => {
+                sequence.classList.add('is-drawing');
+            });
+        }
+    };
+
     pricingTabs.forEach((tab) => {
         tab.addEventListener('click', () => {
             const target = tab.dataset.pricingTarget;
             pricingTabs.forEach((item) => item.classList.toggle('active', item === tab));
             pricingPanels.forEach((panel) => {
-                panel.classList.toggle('active', panel.id === target);
+                const shouldActivate = panel.id === target;
+                panel.classList.toggle('active', shouldActivate);
+                if (shouldActivate) {
+                    triggerSnakeDrawing(panel);
+                }
             });
         });
     });
+
+    const initialActivePanel = document.querySelector('.ls-tier-panel.active');
+    if (initialActivePanel) {
+        triggerSnakeDrawing(initialActivePanel);
+    }
 
     const revealSnakeCards = () => {
         snakeCards.forEach((card, index) => {

@@ -1525,6 +1525,17 @@ body.no-scroll {
 }
 .ls-tier-panel.active {
     display: block;
+    animation: ls-tier-appear 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@keyframes ls-tier-appear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 .ls-snake-sequence {
     position: relative;
@@ -1532,27 +1543,42 @@ body.no-scroll {
     gap: 22px;
     padding: 18px 0 28px;
 }
+.ls-snake-sequence::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    width: 20px;
+    height: 90%;
+    transform: translateX(-50%);
+    background: radial-gradient(circle at center, rgba(214, 176, 139, 0.72), transparent 56%);
+    filter: blur(16px);
+    opacity: 0.48;
+    z-index: 0;
+    pointer-events: none;
+}
 .ls-snake-route {
     position: absolute;
     left: 50%;
     top: 0;
-    width: 280px;
+    width: 300px;
     height: 100%;
     transform: translateX(-50%);
     pointer-events: none;
-    z-index: 0;
+    z-index: 1;
 }
 .ls-snake-route path {
-    stroke: #b08968;
-    stroke-width: 10;
+    stroke: #d9b48f;
+    stroke-width: 18;
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
-    opacity: 0.8;
-    stroke-dasharray: 900;
-    stroke-dashoffset: 900;
+    opacity: 1;
+    stroke-dasharray: 920;
+    stroke-dashoffset: 920;
     transition: stroke-dashoffset 2.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-    filter: drop-shadow(0 0 14px rgba(176, 137, 104, 0.12));
+    filter: drop-shadow(0 0 18px rgba(214, 176, 139, 0.3));
+    will-change: stroke-dashoffset;
 }
 .ls-snake-sequence.is-drawing .ls-snake-route path {
     stroke-dashoffset: 0;
@@ -1560,13 +1586,13 @@ body.no-scroll {
 .ls-snake-node {
     position: absolute;
     left: 50%;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     transform: translateX(-50%);
     border-radius: 50%;
     background: linear-gradient(180deg, #fffdf9, #d6b89b);
-    border: 5px solid #f8f4ef;
-    box-shadow: 0 0 0 10px rgba(176, 137, 104, 0.04), 0 10px 24px rgba(176, 137, 104, 0.16);
+    border: 6px solid #f8f4ef;
+    box-shadow: 0 0 0 10px rgba(176, 137, 104, 0.05), 0 10px 24px rgba(176, 137, 104, 0.24);
     z-index: 3;
 }
 .ls-snake-sequence.is-drawing .ls-snake-node {
@@ -1614,6 +1640,7 @@ body.no-scroll {
 .ls-snake-card--highlight {
     background: linear-gradient(180deg, #fdf9f4 0%, #f9f2e8 100%);
     border-color: rgba(176, 137, 104, 0.38);
+    box-shadow: 0 24px 50px rgba(176, 137, 104, 0.18);
 }
 .ls-snake-card--cta {
     display: flex;

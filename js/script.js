@@ -708,6 +708,71 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// --- Gender Party & Pregnancy Modal Logic ---
+document.addEventListener('DOMContentLoaded', () => {
+    const genderpartyCard = document.getElementById('genderparty-card');
+    const genderpartyModal = document.getElementById('genderparty-modal');
+    const pregnancyCard = document.getElementById('pregnancy-card');
+    const pregnancyModal = document.getElementById('pregnancy-modal');
+
+    const openModal = (modal) => {
+        if (modal) {
+            modal.classList.add('visible');
+            document.body.style.overflow = 'hidden';
+        }
+    };
+
+    const closeModal = (modal) => {
+        if (modal) {
+            modal.classList.remove('visible');
+            document.body.style.overflow = '';
+        }
+    };
+
+    if (genderpartyCard && genderpartyModal) {
+        const genderpartyCloseBtn = genderpartyModal.querySelector('.genderparty-close-modal');
+
+        genderpartyCard.addEventListener('click', () => openModal(genderpartyModal));
+
+        if (genderpartyCloseBtn) {
+            genderpartyCloseBtn.addEventListener('click', () => closeModal(genderpartyModal));
+        }
+
+        genderpartyModal.addEventListener('click', (e) => {
+            if (e.target === genderpartyModal) {
+                closeModal(genderpartyModal);
+            }
+        });
+    }
+
+    if (pregnancyCard && pregnancyModal) {
+        const pregnancyCloseBtn = pregnancyModal.querySelector('.pregnancy-close-modal');
+
+        pregnancyCard.addEventListener('click', () => openModal(pregnancyModal));
+
+        if (pregnancyCloseBtn) {
+            pregnancyCloseBtn.addEventListener('click', () => closeModal(pregnancyModal));
+        }
+
+        pregnancyModal.addEventListener('click', (e) => {
+            if (e.target === pregnancyModal) {
+                closeModal(pregnancyModal);
+            }
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            if (genderpartyModal && genderpartyModal.classList.contains('visible')) {
+                closeModal(genderpartyModal);
+            }
+            if (pregnancyModal && pregnancyModal.classList.contains('visible')) {
+                closeModal(pregnancyModal);
+            }
+        }
+    });
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     const weddingCard = document.getElementById('wedding-card');
     const weddingModal = document.getElementById('wedding-modal');

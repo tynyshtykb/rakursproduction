@@ -46,39 +46,32 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <!-- Чтобы изменить фоновое изображение, поменяйте путь в url(...) ниже на свое изображение (например, img/my-photo.jpg) -->
         <section id="home" class="hero">
             <div class="hero-content">
                 <h1 class="hero-title">Rakurs Production</h1>
                 <p class="hero-subtitle">Үздік фотостудия 2025</p>
-                <div class="hero-buttons">
-                    <a href="#locations" class="btn btn-outline">Локацияларды көру</a>
-                </div>
+                <div class="hero-buttons"></div>
             </div>
             <div class="hero-overlay"></div>
         </section>
-
-        <!-- Services Section -->
         <section id="services" class="section bg-light">
             <div class="container">
                 <h2 class="section-title fade-in">Біздің Қызметтер</h2>
                 <div class="services-grid">
-                    <!-- Той -->
-                    <div id="wedding-card" class="service-card fade-in clickable-service">
+                    <!-- Тойға дейінгі фотосессия -->
+                    <div id="prewedding-card" class="service-card fade-in clickable-service">
                         <div class="service-img">
-                            <img src="img/toy.webp" alt="Той" loading="lazy">
+                            <img src="img/b4toi.jpg" alt="Тойға дейінгі фотосессия" loading="lazy" onerror="this.src='img/lovestory.jpg'">
                             <div class="service-hover-overlay">
                                 <span class="btn btn-primary btn-sm btn-glow">Пакеттерді көру</span>
                             </div>
                         </div>
                         <div class="service-content">
-                            <h3>Той</h3>
-                            <p>Үйлену тойлары мен салтанатты іс-шараларды түсіру. Мерекенің барлық негізгі сәттерін тіркеу.</p>
+                            <h3>Тойға дейінгі фотосессия</h3>
+                            <p>Той алдындағы ерекше сәттерді мәңгілікке сақтауға арналған арнайы фотосессия. Сіздің кіршіксіз бақытыңыз бен сезімге толы көзқарастарыңыз.</p>
                         </div>
                     </div>
 
-                    <!-- Love Story -->
                     <div id="lovestory-card" class="service-card fade-in clickable-service">
                         <div class="service-img">
                             <img src="img/lovestory.webp" alt="Love Story" loading="lazy">
@@ -105,46 +98,44 @@
                             <p>Дәстүрлі қазақ той алдындағы рәсімі. Маңызды отбасылық сәттерді, эмоцияларды және ұлттық атмосфераны суретке түсіру.</p>
                         </div>
                     </div>
-                    
-                    <!-- Топпен фотосет -->
+
+                    <div id="family-card" class="service-card fade-in clickable-service">
+                        <div class="service-img">
+                            <img src="img/family3.jpeg" alt="Отбасылық фотосессия" loading="lazy">
+                            <div class="service-hover-overlay">
+                                <span class="btn btn-primary btn-sm btn-glow">Пакеттерді көру</span>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Отбасылық фотосессия</h3>
+                            <p>Отбасылық фотосессия. Отбасылық атмосфера мен жақындықты жеткізетін жылы және шынайы фотосуреттер.</p>
+                        </div>
+                    </div>
+
+                    <!-- Той -->
+                    <div id="wedding-card" class="service-card fade-in clickable-service">
+                        <div class="service-img">
+                            <img src="img/toy.webp" alt="Той" loading="lazy">
+                            <div class="service-hover-overlay">
+                                <span class="btn btn-primary btn-sm btn-glow">Пакеттерді көру</span>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Той</h3>
+                            <p>Үйлену тойлары мен салтанатты іс-шараларды түсіру. Мерекенің барлық негізгі сәттерін тіркеу.</p>
+                        </div>
+                    </div>
+
                     <div id="group-card" class="service-card fade-in clickable-service">
                         <div class="service-img">
-                            <img src="img/top.jpg" alt="Топпен фотосет" loading="lazy">
+                            <img src="img/top.jpg" alt="Топпен фотосессия" loading="lazy">
                             <div class="service-hover-overlay">
                                 <span class="btn btn-primary btn-sm btn-glow">Бағаларын көру</span>
                             </div>
                         </div>
                         <div class="service-content">
-                            <h3>Топпен фотосет</h3>
+                            <h3>Топпен фотосессия</h3>
                             <p>Достарға, командаларға немесе ұжымдарға арналған топтық фотосессия. Жанды, динамикалық және атмосфералық кадрлар.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Отбасылық фотосет -->
-                    <div id="family-card" class="service-card fade-in clickable-service">
-                        <div class="service-img">
-                            <img src="img/family3.jpeg" alt="Отбасылық фотосет" loading="lazy">
-                            <div class="service-hover-overlay">
-                                <span class="btn btn-primary btn-sm btn-glow">Пакеттерді көру</span>
-                            </div>
-                        </div>
-                        <div class="service-content">
-                            <h3>Отбасылық фотосет</h3>
-                            <p>Отбасылық фотосессия. Отбасылық атмосфера мен жақындықты жеткізетін жылы және шынайы фотосуреттер.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Тойға дейінгі фотосессия -->
-                    <div id="prewedding-card" class="service-card fade-in clickable-service">
-                        <div class="service-img">
-                            <img src="img/b4toi.jpg" alt="Тойға дейінгі фотосессия" loading="lazy" onerror="this.src='img/lovestory.jpg'">
-                            <div class="service-hover-overlay">
-                                <span class="btn btn-primary btn-sm btn-glow">Пакеттерді көру</span>
-                            </div>
-                        </div>
-                        <div class="service-content">
-                            <h3>Тойға дейінгі фотосессия</h3>
-                            <p>Той алдындағы ерекше сәттерді мәңгілікке сақтауға арналған арнайы фотосессия. Сіздің кіршіксіз бақытыңыз бен сезімге толы көзқарастарыңыз.</p>
                         </div>
                     </div>
 
@@ -159,6 +150,32 @@
                         <div class="service-content">
                             <h3>Виньетка</h3>
                             <p>Мектеп виньеткалары мен бітіру альбомдарын суретке түсіру. Оқушылар мен студенттерге арналған стильді және заманауи макеттер жасау.</p>
+                        </div>
+                    </div>
+
+                    <div id="genderparty-card" class="service-card fade-in clickable-service">
+                        <div class="service-img">
+                            <img src="img/etno.jpg" alt="Gender Party" loading="lazy">
+                            <div class="service-hover-overlay">
+                                <span class="btn btn-primary btn-sm btn-glow">Прайс лист көру</span>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Gender Party</h3>
+                            <p>Жыныстық мерекелерге арналған стильді, көңілді және ерекше фотосессия. Яркие детали, эмоции и настроение.</p>
+                        </div>
+                    </div>
+
+                    <div id="pregnancy-card" class="service-card fade-in clickable-service">
+                        <div class="service-img">
+                            <img src="img/family2.jpeg" alt="Беременность" loading="lazy">
+                            <div class="service-hover-overlay">
+                                <span class="btn btn-primary btn-sm btn-glow">Прайс лист көру</span>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Беременность</h3>
+                            <p>Сіздерге ерекше және шынайы сәттерді сақтауға арналған беременность фотосессиясы.</p>
                         </div>
                     </div>
                 </div>
@@ -1001,6 +1018,108 @@
                         </div>
                     </div>
 
+                </div>
+            </div>
+        </div>
+
+        <!-- Gender Party Modal -->
+        <div id="genderparty-modal" class="ls-modal">
+            <div class="ls-modal-content">
+                <div class="ls-modal-header">
+                    <h2>Gender Party ұйымдастырамыз</h2>
+                    <span class="genderparty-close-modal ls-close-modal">&times;</span>
+                </div>
+                <div class="ls-modal-body">
+                    <div class="ls-packages" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                        <div class="ls-package">
+                            <div class="ls-pkg-header">MINI</div>
+                            <ul class="ls-pkg-list">
+                                <li><i class="fa-solid fa-check"></i> Фотостудия – 30 минут</li>
+                                <li><i class="fa-solid fa-check"></i> Кәсіби фотограф</li>
+                                <li><i class="fa-solid fa-check"></i> 40 фото өңдеумен</li>
+                                <li><i class="fa-solid fa-check"></i> Реквизит – сізден</li>
+                            </ul>
+                            <div class="ls-pkg-price">💰 15 000 тг</div>
+                        </div>
+                        <div class="ls-package ls-pkg-standart">
+                            <div class="ls-pkg-header">STANDARD</div>
+                            <ul class="ls-pkg-list">
+                                <li><i class="fa-solid fa-check"></i> Фотостудия – 1 сағат</li>
+                                <li><i class="fa-solid fa-check"></i> Кәсіби фотограф</li>
+                                <li><i class="fa-solid fa-check"></i> 50–70 фото өңдеумен</li>
+                                <li><i class="fa-solid fa-check"></i> Реквизит – сізден</li>
+                            </ul>
+                            <div class="ls-pkg-price highlight">💰 25 000 тг</div>
+                        </div>
+                        <div class="ls-package">
+                            <div class="ls-pkg-header">PREMIUM (под ключ)</div>
+                            <ul class="ls-pkg-list">
+                                <li><i class="fa-solid fa-check"></i> Фотостудия – 1 сағат</li>
+                                <li><i class="fa-solid fa-check"></i> Краска, маска, футболка (муж/жен)</li>
+                                <li><i class="fa-solid fa-check"></i> Кәсіби фотограф</li>
+                                <li><i class="fa-solid fa-check"></i> 70 фото өңдеумен</li>
+                                <li><i class="fa-solid fa-check"></i> Мобилограф (video + backstage)</li>
+                            </ul>
+                            <div class="ls-pkg-price">💰 35 000 тг</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Беременность Modal -->
+        <div id="pregnancy-modal" class="ls-modal">
+            <div class="ls-modal-content">
+                <div class="ls-modal-header">
+                    <h2>Беременность прайс лист</h2>
+                    <span class="pregnancy-close-modal ls-close-modal">&times;</span>
+                </div>
+                <div class="ls-modal-body">
+                    <div class="ls-packages" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                        <div class="ls-package">
+                            <div class="ls-pkg-header">Пакет 1</div>
+                            <ul class="ls-pkg-list">
+                                <li><i class="fa-solid fa-check"></i> Фотосессия в студии — 30 минут</li>
+                                <li><i class="fa-solid fa-check"></i> 4 локации для съемки</li>
+                                <li><i class="fa-solid fa-check"></i> Работа профессионального фотографа</li>
+                                <li><i class="fa-solid fa-check"></i> Профессиональная обработка фотографий</li>
+                                <li><i class="fa-solid fa-check"></i> Предоставление парной рубашки</li>
+                                <li><i class="fa-solid fa-check"></i> Помощь в позировании</li>
+                                <li><i class="fa-solid fa-check"></i> От клиента требуется 1 образ</li>
+                            </ul>
+                            <div class="ls-pkg-price">
+                                <span class="old-price">20 000 ₸</span>
+                                15 000 ₸
+                            </div>
+                        </div>
+                        <div class="ls-package ls-pkg-standart">
+                            <div class="ls-pkg-header">Пакет 2</div>
+                            <ul class="ls-pkg-list">
+                                <li><i class="fa-solid fa-check"></i> Фотосессия в студии — 1 час</li>
+                                <li><i class="fa-solid fa-check"></i> 4 локации</li>
+                                <li><i class="fa-solid fa-check"></i> Работа фотографа</li>
+                                <li><i class="fa-solid fa-check"></i> Профессиональная обработка фотографий</li>
+                                <li><i class="fa-solid fa-check"></i> Парная рубашка</li>
+                                <li><i class="fa-solid fa-check"></i> Платье со шлейфом</li>
+                                <li><i class="fa-solid fa-check"></i> Помощь в позировании</li>
+                            </ul>
+                            <div class="ls-pkg-price highlight">💰 35 000 ₸</div>
+                        </div>
+                        <div class="ls-package">
+                            <div class="ls-pkg-header">Пакет 3</div>
+                            <ul class="ls-pkg-list">
+                                <li><i class="fa-solid fa-check"></i> Макияж и укладка волос</li>
+                                <li><i class="fa-solid fa-check"></i> Фотосессия в студии — 1 час</li>
+                                <li><i class="fa-solid fa-check"></i> 4 локации</li>
+                                <li><i class="fa-solid fa-check"></i> Работа фотографа</li>
+                                <li><i class="fa-solid fa-check"></i> Профессиональная обработка фотографий</li>
+                                <li><i class="fa-solid fa-check"></i> Парная рубашка</li>
+                                <li><i class="fa-solid fa-check"></i> Платье со шлейфом</li>
+                                <li><i class="fa-solid fa-check"></i> Помощь в позировании</li>
+                            </ul>
+                            <div class="ls-pkg-price">💰 42 000 ₸</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
